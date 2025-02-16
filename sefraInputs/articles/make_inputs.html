@@ -60,7 +60,7 @@
                         <h4 data-toc-skip class="author">Tom Peatman and
 Charles Edwards</h4>
             
-            <h4 data-toc-skip class="date">12-Feb-2025</h4>
+            <h4 data-toc-skip class="date">16-Feb-2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefraInputs/blob/HEAD/vignettes/make_inputs.Rmd" class="external-link"><code>vignettes/make_inputs.Rmd</code></a></small>
       <div class="d-none name"><code>make_inputs.Rmd</code></div>
@@ -245,8 +245,6 @@ consists of two files:</p>
 demonstration of the code:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">obs_effort</span>, <span class="va">obs_captures</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning in data(obs_effort, obs_captures): data set 'obs_effort' not found</span></span></code></pre>
-<pre><code><span><span class="co">## Warning in data(obs_effort, obs_captures): data set 'obs_captures' not found</span></span></code></pre>
 <p>The synthetic observed effort and captures data have the following
 structure:</p>
 <table class="table">
@@ -425,26 +423,26 @@ degree square grid cell.</p>
 <h3 id="check-that-synthetic-observer-data-meet-minimum-requirements">Check that synthetic observer data meet minimum requirements<a class="anchor" aria-label="anchor" href="#check-that-synthetic-observer-data-meet-minimum-requirements"></a>
 </h3>
 <p>Get totals for initial observed effort and captures:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">N_EFFORT</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_effort</span><span class="op">$</span><span class="va">observer_effort</span><span class="op">)</span></span>
 <span><span class="va">N_CAPTURES</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_captures</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_effort</span>   <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_observed_effort.html">check_observed_effort</a></span><span class="op">(</span><span class="va">obs_effort</span><span class="op">)</span></span>
 <span><span class="va">obs_captures</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_observed_captures.html">check_observed_captures</a></span><span class="op">(</span><span class="va">obs_captures</span><span class="op">)</span></span></code></pre></div>
 <p>Get the variables that define the stratification of the observer data
 (<code>strata_vars</code>), and ensure that they are present in both the
 observer effort and capture data:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">strata_vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">obs_effort</span><span class="op">)</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">obs_effort</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"observer_effort"</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">strata_vars</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">obs_effort</span><span class="op">)</span>, <span class="va">strata_vars</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">obs_captures</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Check that each record in <code>obs_captures</code> matches at most
 one record in <code>obs_effort</code>:</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_effort</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">obs_captures</span>, by <span class="op">=</span> <span class="va">strata_vars</span>, relationship <span class="op">=</span> <span class="st">"one-to-many"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p>Check for multiple records in the observer effort data for a
 particular strata, which would introduce duplication in captures data
 when they are joined:</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># effort records per strata</span></span>
 <span><span class="va">effort_records_per_strata</span> <span class="op">&lt;-</span> <span class="va">obs_effort</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by_all.html" class="external-link">group_by_at</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">strata_vars</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -453,15 +451,11 @@ when they are joined:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">effort_records_per_strata</span><span class="op">$</span><span class="va">n</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p>Filter out captures for strata with no corresponding observed effort
 data:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_captures</span> <span class="op">&lt;-</span> <span class="va">obs_captures</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">obs_effort</span>, by <span class="op">=</span> <span class="va">strata_vars</span><span class="op">)</span></span></code></pre></div>
 <p>Summarise remaining observed effort and captures after initial
 filtering:</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Observed effort after check_observed_effort accounts for "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_effort</span><span class="op">$</span><span class="va">observer_effort</span><span class="op">)</span><span class="op">/</span><span class="va">N_EFFORT</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed effort provided by User"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Observed effort after check_observed_effort accounts for 100% of total observed effort provided by User</span></span></code></pre>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Observed captures after check_observed_effort and check_observed_captures accounts for "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_captures</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span><span class="op">/</span><span class="va">N_CAPTURES</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed captures provided by User"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Observed captures after check_observed_effort and check_observed_captures accounts for 100% of total observed captures provided by User</span></span></code></pre>
 </div>
 </div>
@@ -495,7 +489,7 @@ returns a summary of available biological inputs:</p>
 <p>Other data objects that are required, or helpful, when preparing data
 inputs can be accessed through a call to <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code>. To check
 what data are available in the current package build, use:</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"sefraInputs"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="demographic-parameters">Demographic parameters<a class="anchor" aria-label="anchor" href="#demographic-parameters"></a>
@@ -503,7 +497,7 @@ what data are available in the current package build, use:</p>
 <p>To load the current biological inputs into the global environment
 (i.e., the <code>inputsBio</code> object) , we select the object where
 <code>description = "reference"</code>:</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/sefra_data.html">sefra_data</a></span><span class="op">(</span><span class="st">"inputsBio"</span>, description <span class="op">=</span> <span class="st">"reference"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Loaded data:</span></span></code></pre>
 <pre><code><span><span class="co">## </span></span>
@@ -524,11 +518,11 @@ facilitate data preparation with different biological inputs, e.g., for
 sensitivity analyses.</p>
 <p>Here, we prepare the synthetic observer dataset using the current
 best estimates of the biological inputs:</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inputs_bio_option</span> <span class="op">&lt;-</span> <span class="va">inputsBio</span></span></code></pre></div>
 <p>Create a separate object for each element of
 <code>inputs_bio_option</code>:</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">inputs_bio_option</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/assign.html" class="external-link">assign</a></span><span class="op">(</span><span class="va">i</span>, value <span class="op">=</span> <span class="va">inputs_bio_option</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, envir <span class="op">=</span> <span class="va">.GlobalEnv</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Created "</span>, <span class="va">i</span><span class="op">)</span></span>
@@ -546,7 +540,7 @@ best estimates of the biological inputs:</p>
 <pre><code><span><span class="co">## Created A_curr</span></span></code></pre>
 <pre><code><span><span class="co">## Created A_opt</span></span></code></pre>
 <p>To retrieve the species list:</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/assign.html" class="external-link">assign</a></span><span class="op">(</span><span class="st">"species"</span>, value <span class="op">=</span> <span class="va">inputs_bio_option</span><span class="op">[[</span><span class="st">"sp_codes"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span>,<span class="st">"code"</span><span class="op">]</span>, envir <span class="op">=</span> <span class="va">.GlobalEnv</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -555,7 +549,7 @@ best estimates of the biological inputs:</p>
 <p>To load the current seabird density maps into the global environment
 (i.e., the <code>density_maps</code> object) , we select the object
 where <code>description = "reference"</code>:</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/sefra_data.html">sefra_data</a></span><span class="op">(</span><span class="st">"density_maps"</span>, description <span class="op">=</span> <span class="st">"reference"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Loaded data:</span></span></code></pre>
 <pre><code><span><span class="co">## </span></span>
@@ -569,11 +563,11 @@ selected species with additional tracking data, and density maps
 incorporating range maps from Birdlife International.</p>
 <p>Here, we prepare the synthetic observer dataset using the current
 best estimates of the biological inputs:</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">density_maps_option</span> <span class="op">&lt;-</span> <span class="va">density_maps</span></span></code></pre></div>
 <p>Create a separate object for each element of
 <code>density_maps</code>:</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">density_maps_option</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/assign.html" class="external-link">assign</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"densities_"</span>, <span class="va">i</span><span class="op">)</span>, value <span class="op">=</span> <span class="va">density_maps_option</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, envir <span class="op">=</span> <span class="va">.GlobalEnv</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Created "</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"densities_"</span>, <span class="va">i</span><span class="op">)</span><span class="op">)</span></span>
@@ -616,7 +610,7 @@ system that is consistent with the seabird density maps (see
 coordinate reference systems is required to estimate the spatial overlap
 between fishing effort and seabird populations.</p>
 <p>The grid is accessible using:</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"grid"</span>, package <span class="op">=</span> <span class="st">"sefraInputs"</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>grid</code> is a <code>sf</code> object, with each 5 x 5
 degree cell represented as a polygon. The <code>grid</code> has an
@@ -638,7 +632,7 @@ identifiers (<code>id_species</code>), species codes (<code>code</code>
 - using FAO ASFIS three-alpha codes where available), and common names
 (<code>common_name</code>), for the seabird species included in the risk
 assessment model:</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sp_codes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
@@ -694,7 +688,7 @@ variables.</p>
 <p>The <code>sp_groups</code> object in
 <code>inputsBio[['reference']]</code> provides the species groupings
 used in the 2024 seabird risk assessment:</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">id_species_group</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">id_species_group</span>, <span class="va">species_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">id_species_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -747,7 +741,7 @@ We refer to these as been having identified to a ‘species complex’
 level. The following records in <code>sp_groups</code> give the codes
 that should be used for captures identified to a ‘species complex’
 level:</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">taxonomic_resolution</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"complex"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
@@ -928,7 +922,7 @@ aequinoctialis</td>
 </table>
 <p>The following records in <code>sp_groups</code> give the codes that
 should be used for captures identified to a genus level:</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">taxonomic_resolution</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"genus"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -1038,7 +1032,7 @@ should be used for captures identified to a genus level:</p>
 </table>
 <p>The following records in <code>sp_groups</code> give the codes that
 should be used for captures identified to a family level:</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">taxonomic_resolution</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"family"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -1115,7 +1109,7 @@ should be used for captures identified to a family level:</p>
 <p>There is also a record in <code>sp_groups</code> with the code that
 should be used for captures that were not identified to a family
 level:</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">taxonomic_resolution</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"bird"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -1206,7 +1200,7 @@ data objects, i.e., do not directly adjust <code>species_group</code> or
 <p>For example, to define species groups using genus, i.e., grouping all
 great albatrosses (Diomedea species) together, the User should run the
 following:</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Initial species groupings</span></span>
 <span><span class="va">sp_groups_init</span> <span class="op">&lt;-</span> <span class="va">sp_groups</span></span>
 <span></span>
@@ -1230,13 +1224,13 @@ dataset (i.e., the dataset that includes data from all participating
 members), as consistent species groups must be used by all members.</p>
 <p>First, ensure that the <code>sp_groups</code> has not been
 updated:</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">sp_groups</span>, <span class="va">inputs_bio_option</span><span class="op">[[</span><span class="st">"sp_groups"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Resetting species groups to inputs_bio_option[['sp_groups']]"</span><span class="op">)</span></span>
 <span>  <span class="va">sp_groups</span> <span class="op">&lt;-</span> <span class="va">inputs_bio_option</span><span class="op">[[</span><span class="st">"sp_groups"</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>The species groups are:</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">sp_groups</span>, caption <span class="op">=</span> <span class="st">"Species groups used to prepare the synthetic dataset."</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <caption>Species groups used to prepare the synthetic dataset.</caption>
@@ -1963,7 +1957,7 @@ aequinoctialis</td>
 <p>Save <code>sp_groups</code> and (if necessary)
 <code>species_groups_definitions</code> for use in the risk assessment
 model:</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">sp_groups</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"sp_groups.rda"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/exists.html" class="external-link">exists</a></span><span class="op">(</span><span class="st">"species_group_definitions"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">species_group_definitions</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"species_group_definitions.rda"</span><span class="op">)</span><span class="op">)</span></span>
@@ -1989,12 +1983,12 @@ will have changed over time.</p>
 data are used to estimate catchabilities. This is saved as part of the
 data preparation process. In our example, we use all available observer
 data:</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fishing_years_fit</span> <span class="op">&lt;-</span> <span class="fl">2020</span><span class="op">:</span><span class="fl">2021</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">fishing_years_fit</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"fishing_years_fit.rda"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The observer data are then filtered to keep data from the appropriate
 time period:</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_effort</span>   <span class="op">&lt;-</span> <span class="va">obs_effort</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">year</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">fishing_years_fit</span><span class="op">)</span></span>
 <span><span class="va">obs_captures</span> <span class="op">&lt;-</span> <span class="va">obs_captures</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">year</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">fishing_years_fit</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -2003,24 +1997,20 @@ time period:</p>
 </h3>
 <p>Get total observed effort and captures, which will be used to check
 that total captures have been preserved:</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">N_EFFORT</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_effort</span><span class="op">$</span><span class="va">observer_effort</span><span class="op">)</span></span>
 <span><span class="va">N_CAPTURES</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_captures</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span></span></code></pre></div>
 <p>Add the (numeric) code ID (<code>id_code</code>) to the capture
 data:</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_captures</span> <span class="op">&lt;-</span> <span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">code</span>, <span class="va">id_code</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">obs_captures</span>, <span class="va">.</span>, by <span class="op">=</span> <span class="st">"code"</span><span class="op">)</span></span></code></pre></div>
 <p>Check for observed captures of species codes not included in the risk
 assessment model:</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">CHK_CAPTURES</span> <span class="op">&lt;-</span> <span class="va">obs_captures</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">sp_groups</span>, by <span class="op">=</span> <span class="st">"code"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Observed captures of species codes not included in the risk assessment model account for "</span>, <span class="fl">100</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">CHK_CAPTURES</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span><span class="op">/</span><span class="va">N_CAPTURES</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed seabird captures"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Observed captures of species codes not included in the risk assessment model account for 100% of total observed seabird captures</span></span></code></pre>
 <p>Restructure the captures data to have one record per strata:</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_captures</span> <span class="op">&lt;-</span> <span class="va">obs_captures</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by_all.html" class="external-link">group_by_at</a></span><span class="op">(</span><span class="va">strata_vars</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">code</span><span class="op">)</span>,</span>
@@ -2031,17 +2021,17 @@ assessment model:</p>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p>Combine observed effort and captures, and check that total observed
 effort and captures have been preserved:</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="va">obs_effort</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">obs_captures</span>, by <span class="op">=</span> <span class="va">strata_vars</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html" class="external-link">isTRUE</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">$</span><span class="va">observer_effort</span><span class="op">)</span>, <span class="va">N_EFFORT</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html" class="external-link">isTRUE</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span><span class="op">)</span>, <span class="va">N_CAPTURES</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Add a unique identifier to each record in <code>obs_data</code>
 called <code>record_id</code>:</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">.</span>, record_id <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">record_id</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The combined observer dataset has the following structure:</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
@@ -2220,7 +2210,7 @@ species.</p>
 <p>First, create a look-up table called <code>lk_fishery_groups</code>
 that provides a name for each fishery group (the
 <code>fishery_group</code> variable):</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lk_fishery_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id_fishery_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span><span class="op">)</span>, fishery_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Albacore"</span>, <span class="st">"Tropical Tuna"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span><span class="op">$</span><span class="va">id_fishery_group</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
@@ -2234,7 +2224,7 @@ punctuation characters, or special characters in LaTeX, e.g. underscores
 <p>Then create a data frame called
 <code>fishery_group_definitions</code> that defines fishery groups, in
 this case based on target species:</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fishery_group_definitions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id_fishery_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span><span class="op">)</span>, target <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ALB"</span>, <span class="st">"BET+YFT"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">fishery_group_definitions</span><span class="op">$</span><span class="va">id_fishery_group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">lk_fishery_groups</span><span class="op">$</span><span class="va">id_fishery_group</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The look-up table of fishery group names in this example
@@ -2275,30 +2265,24 @@ this case based on target species:</p>
 </table>
 <p>Assign fishery groups to <code>obs_data</code> using
 <code>assign_fishery_groups</code>:</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/assign_fishery_groups.html">assign_fishery_groups</a></span><span class="op">(</span><span class="va">obs_data</span>, lk_definitions <span class="op">=</span> <span class="va">fishery_group_definitions</span>, lk_names <span class="op">=</span> <span class="va">lk_fishery_groups</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Joining with `by = join_by(target)`</span></span></code></pre>
 <p>As mentioned above, the User can choose to include all surface
 longline effort in a single fishery group. E.g., for observed effort of
 Japanese vessels, a single fishery group could be applied with:</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lk_fishery_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id_fishery_group <span class="op">=</span> <span class="fl">1L</span>, fishery_group <span class="op">=</span> <span class="st">"All"</span><span class="op">)</span></span>
 <span><span class="va">fishery_group_definitions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id_fishery_group <span class="op">=</span> <span class="fl">1L</span>, flag <span class="op">=</span> <span class="st">"JPN"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/assign_fishery_groups.html">assign_fishery_groups</a></span><span class="op">(</span><span class="va">obs_data</span>, lk_definitions <span class="op">=</span> <span class="va">fishery_group_definitions</span>, lk_names <span class="op">=</span> <span class="va">lk_fishery_groups</span><span class="op">)</span></span></code></pre></div>
 <p>Check for observer data with no assigned fishery group:</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">CHK_EFFORT</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">id_fishery_group</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">observer_effort</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">CHK_CAPTURES</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">id_fishery_group</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">n_captures</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Observed effort with an assigned fishery group accounts for "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="va">CHK_EFFORT</span><span class="op">/</span><span class="va">N_EFFORT</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed effort\n"</span>,</span>
-<span>       <span class="st">"(and "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="va">CHK_CAPTURES</span><span class="op">/</span><span class="va">N_CAPTURES</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed seabird captures)"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Observed effort with an assigned fishery group accounts for 100% of total observed effort</span></span>
 <span><span class="co">## (and 100% of total observed seabird captures)</span></span></code></pre>
 <p>Then save <code>fishery_group_definitions</code> and
 <code>lk_fishery_groups</code> so that fishery groups can be assigned to
 the total effort data (for the User’s longline fleet):</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"lk_fishery_groups.rda"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">fishery_group_definitions</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"fishery_group_definitions.rda"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -2316,7 +2300,7 @@ and 2021.</p>
 <p>Create a look-up table called <code>lk_time_periods</code> that
 provides a name for each time period (the <code>period</code>
 variable):</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lk_time_periods</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span><span class="op">)</span>, period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"early"</span>, <span class="st">"late"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated</a></span><span class="op">(</span><span class="va">lk_time_periods</span><span class="op">$</span><span class="va">id_period</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
@@ -2329,7 +2313,7 @@ characters in LaTeX, e.g. underscores (_), ampersands (&amp;), dollar
 signs ($) etc.</p>
 <p>Then, create a data frame called <code>time_period_definitions</code>
 that defines separate time periods for each year:</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">time_period_definitions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>id_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">2L</span><span class="op">)</span>, year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2020L</span>, <span class="fl">2021L</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="va">time_period_definitions</span><span class="op">$</span><span class="va">id_period</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">lk_time_periods</span><span class="op">$</span><span class="va">id_period</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The look-up table of time period names in this example
@@ -2370,22 +2354,16 @@ that defines separate time periods for each year:</p>
 </table>
 <p>Now assign time periods to <code>obs_data</code> using
 <code>assign_time_period</code>:</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/assign_time_periods.html">assign_time_periods</a></span><span class="op">(</span><span class="va">obs_data</span>, lk_definitions <span class="op">=</span> <span class="va">time_period_definitions</span>, lk_names <span class="op">=</span> <span class="va">lk_time_periods</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Joining with `by = join_by(year)`</span></span></code></pre>
 <p>Check for observer data with no assigned time period:</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">CHK_EFFORT</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">id_period</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">observer_effort</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">CHK_CAPTURES</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">id_period</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">n_captures</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Observed effort with an assigned time period accounts for "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="va">CHK_EFFORT</span><span class="op">/</span><span class="va">N_EFFORT</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed effort\n"</span>,</span>
-<span>       <span class="st">"(and "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="va">CHK_CAPTURES</span><span class="op">/</span><span class="va">N_CAPTURES</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed seabird captures)"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Observed effort with an assigned time period accounts for 100% of total observed effort</span></span>
 <span><span class="co">## (and 100% of total observed seabird captures)</span></span></code></pre>
 <p>Then save <code>time_period_definitions</code> and
 <code>lk_time_periods</code> so that time periods can be assigned to the
 total effort dataset (for the User’s longline fleet):</p>
-<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">lk_time_periods</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"lk_time_periods.rda"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">time_period_definitions</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"time_period_definitions.rda"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -2394,15 +2372,10 @@ total effort dataset (for the User’s longline fleet):</p>
 </h3>
 <p>Remove records missing required information to get observed density
 overlap with seabird distributions:</p>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span>  <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">month</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">lat</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">lon</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">CHK_EFFORT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">$</span><span class="va">observer_effort</span><span class="op">)</span></span>
-<span><span class="va">CHK_CAPTURES</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Observed effort with required location and month information accounts for "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="va">CHK_EFFORT</span><span class="op">/</span><span class="va">N_EFFORT</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed effort\n"</span>, <span class="st">"(and "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="va">CHK_CAPTURES</span><span class="op">/</span><span class="va">N_CAPTURES</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"% of total observed seabird captures)"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Observed effort with required location and month information accounts for 100% of total observed effort</span></span>
 <span><span class="co">## (and 100% of total observed seabird captures)</span></span></code></pre>
 </div>
@@ -2412,7 +2385,7 @@ overlap with seabird distributions:</p>
 <p>First, convert <code>month</code> to give the abbreviated month name,
 keeping month as an integer in a new field called
 <code>month_id</code>:</p>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span><span class="op">$</span><span class="va">id_month</span> <span class="op">&lt;-</span> <span class="va">obs_data</span><span class="op">$</span><span class="va">month</span></span>
 <span><span class="va">obs_data</span><span class="op">$</span><span class="va">month</span> <span class="op">&lt;-</span> <span class="va">month.abb</span><span class="op">[</span><span class="va">obs_data</span><span class="op">$</span><span class="va">month</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">$</span><span class="va">month</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -2430,7 +2403,7 @@ named <code>geometry</code>.</p>
 <p>Reformat <code>obs_data</code> to be a <code>sf</code> object, with
 the <code>geometry</code> variable representing the location of fishing
 effort (provided as lat/lons):</p>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">.</span>, geometry <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -2439,7 +2412,7 @@ effort (provided as lat/lons):</p>
 <p>The coordinate reference system of <code>obs_data</code> must be
 transformed to that of <code>grid</code> to ensure a consistent
 coordinate reference system with the seabird density maps:</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">st_transform</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>It is important to note that, when preparing your own data, the
 location of fishing effort does not necessarily need to be represented
@@ -2451,7 +2424,7 @@ used for set-level observer data.</p>
 <p>Add unique cell identifiers from <code>grid</code> to
 <code>obs_data</code>, to allow for model diagnostics with a spatial
 dimension:</p>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_id_cell.html">get_id_cell</a></span><span class="op">(</span><span class="va">obs_data</span>, fun <span class="op">=</span> <span class="va">min</span><span class="op">)</span></span></code></pre></div>
 <p>Points that fall on a boundary between multiple 5 degree cells
 (i.e. a boundary or intersection between polygons in <code>grid</code>)
@@ -2533,14 +2506,14 @@ degree cells.</p>
 distributions<a class="anchor" aria-label="anchor" href="#calculate-density-overlap-of-observed-fishing-effort-with-seabird-distributions"></a>
 </h3>
 <p>Calculate density overlap by species:</p>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_overlap</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">record_id</span>, <span class="va">flag</span>, <span class="va">year</span>, <span class="va">id_period</span>, <span class="va">id_month</span>, <span class="va">month</span>, <span class="va">id_fishery_group</span>, <span class="va">id_cell</span>, <span class="va">observer_effort</span><span class="op">)</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">spp</span> <span class="kw">in</span> <span class="va">species</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">obs_overlap</span> <span class="op">&lt;-</span> <span class="va">obs_overlap</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/get_overlap.html">get_overlap</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/get.html" class="external-link">get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"densities_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">spp</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, name <span class="op">=</span> <span class="va">spp</span>, effort_name <span class="op">=</span> <span class="st">"observer_effort"</span>, group_name <span class="op">=</span> <span class="st">"month"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Finished with spatial information in <code>obs_overlap</code>, so
 remove spatial information:</p>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_overlap</span> <span class="op">&lt;-</span> <span class="va">obs_overlap</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_drop_geometry</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">obs_overlap</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -2549,7 +2522,7 @@ remove spatial information:</p>
 </h3>
 <p>Create object <code>overlap_o</code> with aggregated observed overlap
 for model fitting:</p>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Record for checking</span></span>
 <span><span class="va">OVERLAP_O</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">obs_overlap</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"^overlap_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">obs_overlap</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -2584,7 +2557,7 @@ for model fitting:</p>
 <span><span class="co"># check overlap</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html" class="external-link">isTRUE</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">OVERLAP_O</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">overlap_o</span><span class="op">$</span><span class="va">overlap</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The structure of <code>overlap_o</code> is:</p>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">overlap_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## tibble [200 × 14] (S3: tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##  $ flag            : chr [1:200] "NZL" "NZL" "NZL" "NZL" ...</span></span>
@@ -2612,7 +2585,7 @@ model<a class="anchor" aria-label="anchor" href="#aggregate-observed-captures-to
 </h3>
 <p>Get captures by ‘species code’, including individuals not identified
 to a species-level:</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a named vector of all codes (used in aggregate_captures call)</span></span>
 <span><span class="va">named_sp_codes</span> <span class="op">&lt;-</span> <span class="va">sp_groups</span><span class="op">[</span>, <span class="st">"code"</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">named_sp_codes</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">named_sp_codes</span></span>
@@ -2620,12 +2593,9 @@ to a species-level:</p>
 <span><span class="va">captures_all</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/aggregate_captures.html">aggregate_captures</a></span><span class="op">(</span>strata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flag"</span>, <span class="st">"id_fishery_group"</span>, <span class="st">"year"</span>, <span class="st">"id_period"</span>, <span class="st">"id_month"</span>, <span class="st">"month"</span>, <span class="st">"id_cell"</span><span class="op">)</span>, <span class="va">named_sp_codes</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span><span class="va">.</span>, code <span class="op">=</span> <span class="va">group</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># check no captures lost</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">captures_all</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">obs_data</span><span class="op">$</span><span class="va">code</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">sp_groups</span><span class="op">$</span><span class="va">code</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span><span class="va">.</span>, code <span class="op">=</span> <span class="va">group</span><span class="op">)</span></span></code></pre></div>
 <p>Get captures by status (alive / dead):</p>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">captures_alive</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/filter_captures.html">filter_captures</a></span><span class="op">(</span><span class="va">.</span>, field <span class="op">=</span> <span class="st">"captures_status"</span>, condition <span class="op">=</span> <span class="st">"alive"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/aggregate_captures.html">aggregate_captures</a></span><span class="op">(</span><span class="va">.</span>, strata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flag"</span>, <span class="st">"id_fishery_group"</span>, <span class="st">"year"</span>, <span class="st">"id_period"</span>, <span class="st">"id_month"</span>, <span class="st">"id_cell"</span><span class="op">)</span>, <span class="va">named_sp_codes</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -2639,34 +2609,28 @@ to a species-level:</p>
 <span><span class="va">captures_status</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span></span>
 <span>  <span class="va">captures_alive</span>, <span class="va">captures_dead</span>,</span>
 <span>  by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flag"</span>, <span class="st">"id_fishery_group"</span>, <span class="st">"year"</span>, <span class="st">"id_period"</span>, <span class="st">"id_month"</span>, <span class="st">"id_cell"</span>, <span class="st">"code"</span><span class="op">)</span>,</span>
-<span>  suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"_alive"</span>, <span class="st">"_dead"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># report captures without usable status information</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Captures without usable status information (i.e. not 'alive' or 'dead') = "</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">captures_all</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">captures_status</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"n_captures_alive"</span>, <span class="st">"n_captures_dead"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"_alive"</span>, <span class="st">"_dead"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Captures without usable status information (i.e. not 'alive' or 'dead') = 3</span></span></code></pre>
 <p>Combine observed captures data to include total individuals, and
 individuals by status:</p>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">captures_o</span> <span class="op">&lt;-</span> <span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">id_code</span>, <span class="va">id_species_group</span>, <span class="va">id_species</span>, <span class="va">id_genus</span>, <span class="va">id_family</span>, <span class="va">code</span>, <span class="va">taxonomic_resolution</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">captures_all</span>, by <span class="op">=</span> <span class="st">"code"</span>, relationship <span class="op">=</span> <span class="st">"one-to-many"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">captures_status</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flag"</span>, <span class="st">"id_fishery_group"</span>, <span class="st">"year"</span>, <span class="st">"id_period"</span>, <span class="st">"id_month"</span>, <span class="st">"id_cell"</span>, <span class="st">"code"</span><span class="op">)</span>, relationship <span class="op">=</span> <span class="st">"one-to-one"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">captures_o</span> <span class="op">&lt;-</span> <span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_fishery_group</span>, <span class="va">year</span>, <span class="va">id_period</span>, <span class="va">id_month</span>, <span class="va">month</span>, <span class="va">id_cell</span>,</span>
-<span>                                    <span class="va">code</span>, <span class="va">id_code</span>, <span class="va">id_species_group</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">captures_all</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">captures_o</span><span class="op">$</span><span class="va">n_captures</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>                                    <span class="va">code</span>, <span class="va">id_code</span>, <span class="va">id_species_group</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>For taxonomic ID fields in <code>captures_o</code>, replace
 <code>NA</code>s with -1’s:</p>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">id_vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id_species"</span>, <span class="st">"id_species_group"</span>, <span class="st">"id_genus"</span>, <span class="st">"id_family"</span><span class="op">)</span></span>
 <span><span class="va">captures_o</span><span class="op">[</span>, <span class="va">id_vars</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">captures_o</span><span class="op">[</span>, <span class="va">id_vars</span><span class="op">]</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">1L</span></span>
 <span>  <span class="va">x</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 <p>The structure of <code>captures_o</code> is:</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## 'data.frame':    320 obs. of  17 variables:</span></span>
 <span><span class="co">##  $ flag                : chr  "NZL" "NZL" "NZL" "NZL" ...</span></span>
@@ -2702,23 +2666,23 @@ broad overview of the analysed datasets. Saving tables in LaTeX format
 will facilitate composition of the final report. Tables are also saved
 in binary format for ease of manipulation should alternative
 presentations be required.</p>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tables_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"tables"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/make_folder.html">make_folder</a></span><span class="op">(</span><span class="va">tables_path</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## directory created</span></span></code></pre>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">figures_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"figures"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/make_folder.html">make_folder</a></span><span class="op">(</span><span class="va">figures_path</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## directory created</span></span></code></pre>
 <p>Make a character string with flags, to use when creating table
 captions etc.:</p>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">flag_str</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">overlap_o</span><span class="op">$</span><span class="va">flag</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span></span>
 <span><span class="va">flag_str_label</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">overlap_o</span><span class="op">$</span><span class="va">flag</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="summary-tables-of-observed-effort">Summary tables of observed effort<a class="anchor" aria-label="anchor" href="#summary-tables-of-observed-effort"></a>
 </h3>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed effort by year</span></span>
 <span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_drop_geometry</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -2770,9 +2734,10 @@ captions etc.:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed effort by year and fishery group</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    </span>
 <span>  <span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_drop_geometry</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">year</span>, <span class="va">id_fishery_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -2838,7 +2803,7 @@ captions etc.:</p>
 <div class="section level3">
 <h3 id="summary-tables-of-observed-captures-by-code">Summary tables of observed captures by code<a class="anchor" aria-label="anchor" href="#summary-tables-of-observed-captures-by-code"></a>
 </h3>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Captures by species code (and capture status)</span></span>
 <span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">code</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">"captures"</span><span class="op">)</span>, <span class="va">sum</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
 <span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">code</span>, <span class="va">common_name</span>, <span class="va">taxonomic_resolution</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -2856,7 +2821,7 @@ captions etc.:</p>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...1`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...2`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...3`</span></span></code></pre>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set column names for kable object</span></span>
 <span><span class="va">kbl_colnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span></span>
 <span><span class="va">kbl_colnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"n_captures$"</span>, <span class="st">"Total"</span>, <span class="va">kbl_colnames</span><span class="op">)</span></span>
@@ -3259,7 +3224,7 @@ captions etc.:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed captures by species and fishery group</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_fishery_group</span>, <span class="va">code</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -3640,7 +3605,7 @@ captions etc.:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed captures by species and time period</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_time_periods</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_period</span>, <span class="va">code</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -4017,7 +3982,7 @@ captions etc.:</p>
 <div class="section level3">
 <h3 id="summary-tables-of-observed-captures-by-species-group">Summary tables of observed captures by species group<a class="anchor" aria-label="anchor" href="#summary-tables-of-observed-captures-by-species-group"></a>
 </h3>
-<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Captures by species group (and capture status)</span></span>
 <span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_species_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">"captures"</span><span class="op">)</span>, <span class="va">sum</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
 <span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">sp_groups</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">id_species_group</span>, <span class="va">species_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -4037,7 +4002,7 @@ captions etc.:</p>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...1`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...2`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...3`</span></span></code></pre>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set column names for kable object</span></span>
 <span><span class="va">kbl_colnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span></span>
 <span><span class="va">kbl_colnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"n_captures$"</span>, <span class="st">"Total"</span>, <span class="va">kbl_colnames</span><span class="op">)</span></span>
@@ -4112,7 +4077,7 @@ captions etc.:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed captures by species group and fishery group</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_fishery_group</span>, <span class="va">id_species_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -4201,7 +4166,7 @@ captions etc.:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed captures by species group and fishery group</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_time_periods</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">captures_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_period</span>, <span class="va">id_species_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -4294,7 +4259,7 @@ captions etc.:</p>
 <div class="section level3">
 <h3 id="summary-of-observed-captures-by-age-class">Summary of observed captures by age class<a class="anchor" aria-label="anchor" href="#summary-of-observed-captures-by-age-class"></a>
 </h3>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## get total captures by code</span></span>
 <span><span class="va">tab_all</span> <span class="op">&lt;-</span> <span class="va">obs_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/aggregate_captures.html">aggregate_captures</a></span><span class="op">(</span><span class="st">"flag"</span>, <span class="va">named_sp_codes</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -4339,7 +4304,7 @@ captions etc.:</p>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...2`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...3`</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> `` -&gt; `...4`</span></span></code></pre>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set column names for kable object</span></span>
 <span><span class="va">kbl_colnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span></span>
 <span><span class="va">kbl_colnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"n_captures$"</span>, <span class="st">"Total"</span>, <span class="va">kbl_colnames</span><span class="op">)</span></span>
@@ -4747,7 +4712,7 @@ captions etc.:</p>
 <div class="section level3">
 <h3 id="summary-tables-of-observed-overlap">Summary tables of observed overlap<a class="anchor" aria-label="anchor" href="#summary-tables-of-observed-overlap"></a>
 </h3>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed overlap by species</span></span>
 <span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">overlap_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">"overlap"</span><span class="op">)</span>, <span class="va">sum</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
@@ -4940,7 +4905,7 @@ captions etc.:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed overlap by species and fishery group</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">overlap_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_fishery_group</span>, <span class="va">id_species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -5201,7 +5166,7 @@ captions etc.:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Observed overlap by species and period</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_time_periods</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">overlap_o</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">flag</span>, <span class="va">id_period</span>, <span class="va">id_species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -5466,7 +5431,7 @@ captions etc.:</p>
 <div class="section level3">
 <h3 id="summary-figures-of-observed-effort">Summary figures of observed effort<a class="anchor" aria-label="anchor" href="#summary-figures-of-observed-effort"></a>
 </h3>
-<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map of overall observed effort</span></span>
 <span></span>
 <span><span class="co"># get observed effort by cell</span></span>
@@ -5489,11 +5454,11 @@ captions etc.:</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"map_observed_effort_"</span>, <span class="va">flag_str_label</span>, <span class="st">".png"</span><span class="op">)</span>, plot <span class="op">=</span> <span class="va">plt</span>, device <span class="op">=</span> <span class="st">"png"</span>,</span>
 <span>       path <span class="op">=</span> <span class="va">figures_path</span>, width <span class="op">=</span> <span class="fl">5</span>, height <span class="op">=</span> <span class="fl">5</span>, units <span class="op">=</span> <span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="make_inputs_files/figure-html/unnamed-chunk-110-1.png" alt="Figure - map of overall observed effort" width="480"><p class="caption">
+<img src="make_inputs_files/figure-html/unnamed-chunk-112-1.png" alt="Figure - map of overall observed effort" width="480"><p class="caption">
 Figure - map of overall observed effort
 </p>
 </div>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map of observed effort by month</span></span>
 <span></span>
 <span><span class="co"># get observed effort by cell</span></span>
@@ -5517,11 +5482,11 @@ Figure - map of overall observed effort
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"map_observed_effort_by_month_"</span>, <span class="va">flag_str_label</span>, <span class="st">".png"</span><span class="op">)</span>, plot <span class="op">=</span> <span class="va">plt</span>, device <span class="op">=</span> <span class="st">"png"</span>,</span>
 <span>       path <span class="op">=</span> <span class="va">figures_path</span>, width <span class="op">=</span> <span class="fl">5</span>, height <span class="op">=</span> <span class="fl">5</span>, units <span class="op">=</span> <span class="st">"in"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="make_inputs_files/figure-html/unnamed-chunk-112-1.png" alt="Figure - map of overall observed effort by month" width="480"><p class="caption">
+<img src="make_inputs_files/figure-html/unnamed-chunk-114-1.png" alt="Figure - map of overall observed effort by month" width="480"><p class="caption">
 Figure - map of overall observed effort by month
 </p>
 </div>
-<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map of observed effort by fishery group</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
@@ -5549,11 +5514,11 @@ Figure - map of overall observed effort by month
 <span>         path <span class="op">=</span> <span class="va">figures_path</span>, width <span class="op">=</span> <span class="fl">5</span>, height <span class="op">=</span> <span class="fl">5.5</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_fishery_groups</span><span class="op">)</span>, units <span class="op">=</span> <span class="st">"in"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="figure">
-<img src="make_inputs_files/figure-html/unnamed-chunk-114-1.png" alt="Figure - map of overall observed effort by fishery group" width="480"><p class="caption">
+<img src="make_inputs_files/figure-html/unnamed-chunk-116-1.png" alt="Figure - map of overall observed effort by fishery group" width="480"><p class="caption">
 Figure - map of overall observed effort by fishery group
 </p>
 </div>
-<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map of observed effort by time period</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_time_periods</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span></span>
@@ -5581,7 +5546,7 @@ Figure - map of overall observed effort by fishery group
 <span>         path <span class="op">=</span> <span class="va">figures_path</span>, width <span class="op">=</span> <span class="fl">5</span>, height <span class="op">=</span> <span class="fl">5.5</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">lk_time_periods</span><span class="op">)</span>, units <span class="op">=</span> <span class="st">"in"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="figure">
-<img src="make_inputs_files/figure-html/unnamed-chunk-116-1.png" alt="Figure - map of overall observed effort by time period" width="480"><p class="caption">
+<img src="make_inputs_files/figure-html/unnamed-chunk-118-1.png" alt="Figure - map of overall observed effort by time period" width="480"><p class="caption">
 Figure - map of overall observed effort by time period
 </p>
 </div>
@@ -5592,7 +5557,7 @@ Figure - map of overall observed effort by time period
 </h2>
 <p>Save processed observer data at a raw (i.e., un-aggregated)
 resolution:</p>
-<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">obs_data</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"obs_data.rda"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">obs_overlap</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"obs_overlap.rda"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><code>obs_data</code> and <code>obs_overlap</code> are not required
@@ -5603,10 +5568,10 @@ User.</p>
 <h2 id="save-inputs-to-the-risk-assessment-model">Save inputs to the risk assessment model<a class="anchor" aria-label="anchor" href="#save-inputs-to-the-risk-assessment-model"></a>
 </h2>
 <p>Save observed overlap:</p>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">overlap_o</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"overlap_o.rda"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Save captures data:</p>
-<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">captures_o</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_data</span>, <span class="st">"captures_o.rda"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
