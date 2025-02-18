@@ -60,7 +60,7 @@
                         <h4 data-toc-skip class="author">Tom Peatman and
 Charles Edwards</h4>
             
-            <h4 data-toc-skip class="date">16-Feb-2025</h4>
+            <h4 data-toc-skip class="date">18-Feb-2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefraInputs/blob/HEAD/vignettes/make_inputs.Rmd" class="external-link"><code>vignettes/make_inputs.Rmd</code></a></small>
       <div class="d-none name"><code>make_inputs.Rmd</code></div>
@@ -78,7 +78,9 @@ overall approach is identical to that used for the 2024 CCSBT seabird
 risk assessment, apart from the process of loading in biological data
 inputs. This has been updated to allow members to prepare their observed
 captures and effort datasets using different sets of biological inputs,
-e.g., different seabird density layers.</p>
+e.g., different seabird density layers. There has also been a minor
+change to the arguments of <code>get_overlap</code>, which is also
+described below.</p>
 </div>
 <div class="section level2">
 <h2 id="set-up-an-r-session-for-data-preparation">Set up an <code>R</code> session for data preparation<a class="anchor" aria-label="anchor" href="#set-up-an-r-session-for-data-preparation"></a>
@@ -2511,7 +2513,11 @@ distributions<a class="anchor" aria-label="anchor" href="#calculate-density-over
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">spp</span> <span class="kw">in</span> <span class="va">species</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">obs_overlap</span> <span class="op">&lt;-</span> <span class="va">obs_overlap</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/get_overlap.html">get_overlap</a></span><span class="op">(</span><span class="va">.</span>, <span class="fu"><a href="https://rdrr.io/r/base/get.html" class="external-link">get</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"densities_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">spp</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, name <span class="op">=</span> <span class="va">spp</span>, effort_name <span class="op">=</span> <span class="st">"observer_effort"</span>, group_name <span class="op">=</span> <span class="st">"month"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p>Finished with spatial information in <code>obs_overlap</code>, so
+<p>Please note that <code>get_overlap</code> has been updated to take
+the seabird density map as the <code>y</code> argument, rather than
+taking the relevant density map from the global environment based on the
+species code. For more information see <code><a href="../reference/get_overlap.html">?get_overlap</a></code>.</p>
+<p>Now finished with spatial information in <code>obs_overlap</code>, so
 remove spatial information:</p>
 <div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obs_overlap</span> <span class="op">&lt;-</span> <span class="va">obs_overlap</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_drop_geometry</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
