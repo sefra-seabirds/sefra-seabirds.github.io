@@ -60,7 +60,7 @@
                         <h4 data-toc-skip class="author">Tom Peatman and
 Charles Edwards</h4>
             
-            <h4 data-toc-skip class="date">18-Feb-2025</h4>
+            <h4 data-toc-skip class="date">19-Feb-2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefraInputs/blob/HEAD/vignettes/make_inputs.Rmd" class="external-link"><code>vignettes/make_inputs.Rmd</code></a></small>
       <div class="d-none name"><code>make_inputs.Rmd</code></div>
@@ -482,12 +482,12 @@ returns a summary of available biological inputs:</p>
 <span><span class="co">## 5             density_maps 2024_CCSBT_SRA_combined_range_maps</span></span>
 <span><span class="co">## 6             density_maps                          reference</span></span>
 <span><span class="co">##               created                version id</span></span>
-<span><span class="co">## 1 2025-02-12 08:44:17 20250212T074417Z-998e1  1</span></span>
-<span><span class="co">## 2 2025-02-12 08:44:18 20250212T074418Z-75208  2</span></span>
-<span><span class="co">## 3 2025-02-12 08:44:18 20250212T074418Z-166dd  1</span></span>
-<span><span class="co">## 4 2025-02-12 08:44:22 20250212T074422Z-0a406  1</span></span>
-<span><span class="co">## 5 2025-02-12 08:44:23 20250212T074423Z-37be3  2</span></span>
-<span><span class="co">## 6 2025-02-12 08:44:24 20250212T074424Z-5b8bf  3</span></span></code></pre>
+<span><span class="co">## 1 2025-02-19 13:20:11 20250219T122011Z-6ce6e  1</span></span>
+<span><span class="co">## 2 2025-02-19 13:20:11 20250219T122011Z-c1785  2</span></span>
+<span><span class="co">## 3 2025-02-19 13:20:11 20250219T122011Z-166dd  1</span></span>
+<span><span class="co">## 4 2025-02-19 13:20:15 20250219T122015Z-a6c04  1</span></span>
+<span><span class="co">## 5 2025-02-19 13:20:16 20250219T122016Z-28b21  2</span></span>
+<span><span class="co">## 6 2025-02-19 13:20:17 20250219T122017Z-21adc  3</span></span></code></pre>
 <p>Other data objects that are required, or helpful, when preparing data
 inputs can be accessed through a call to <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code>. To check
 what data are available in the current package build, use:</p>
@@ -506,7 +506,7 @@ what data are available in the current package build, use:</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name      |description |created             |version                | id|</span></span>
 <span><span class="co">## |:---------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |inputsBio |reference   |2025-02-12 08:44:18 |20250212T074418Z-75208 |  2|</span></span></code></pre>
+<span><span class="co">## |inputsBio |reference   |2025-02-19 13:20:11 |20250219T122011Z-c1785 |  2|</span></span></code></pre>
 <p>The biological inputs for the 2024 CCSBT risk assessment are also
 available (i.e., <code>description = "2024_CCSBT_SRA"</code>).
 Biological inputs will updated and added the <code>sefraInputs</code>
@@ -558,7 +558,7 @@ where <code>description = "reference"</code>:</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name         |description |created             |version                | id|</span></span>
 <span><span class="co">## |:------------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |density_maps |reference   |2025-02-12 08:44:24 |20250212T074424Z-5b8bf |  3|</span></span></code></pre>
+<span><span class="co">## |density_maps |reference   |2025-02-19 13:20:17 |20250219T122017Z-21adc |  3|</span></span></code></pre>
 <p>Density maps will updated and added the <code>sefraInputs</code>
 package as the project progresses, e.g., updated density maps for
 selected species with additional tracking data, and density maps
@@ -1227,7 +1227,7 @@ members), as consistent species groups must be used by all members.</p>
 <p>First, ensure that the <code>sp_groups</code> has not been
 updated:</p>
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">sp_groups</span>, <span class="va">inputs_bio_option</span><span class="op">[[</span><span class="st">"sp_groups"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html" class="external-link">isTRUE</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">sp_groups</span>, <span class="va">inputs_bio_option</span><span class="op">[[</span><span class="st">"sp_groups"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Resetting species groups to inputs_bio_option[['sp_groups']]"</span><span class="op">)</span></span>
 <span>  <span class="va">sp_groups</span> <span class="op">&lt;-</span> <span class="va">inputs_bio_option</span><span class="op">[[</span><span class="st">"sp_groups"</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="op">}</span></span></code></pre></div>
