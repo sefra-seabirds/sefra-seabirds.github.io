@@ -60,7 +60,7 @@
                         <h4 data-toc-skip class="author">Tom Peatman and
 Charles Edwards</h4>
             
-            <h4 data-toc-skip class="date">19-Feb-2025</h4>
+            <h4 data-toc-skip class="date">28-Feb-2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefraInputs/blob/HEAD/vignettes/test_sefra_data.Rmd" class="external-link"><code>vignettes/test_sefra_data.Rmd</code></a></small>
       <div class="d-none name"><code>test_sefra_data.Rmd</code></div>
@@ -90,12 +90,12 @@ Charles Edwards</h4>
 <span><span class="co">## 5             density_maps 2024_CCSBT_SRA_combined_range_maps</span></span>
 <span><span class="co">## 6             density_maps                          reference</span></span>
 <span><span class="co">##               created                version id</span></span>
-<span><span class="co">## 1 2025-02-19 13:20:11 20250219T122011Z-6ce6e  1</span></span>
-<span><span class="co">## 2 2025-02-19 13:20:11 20250219T122011Z-c1785  2</span></span>
-<span><span class="co">## 3 2025-02-19 13:20:11 20250219T122011Z-166dd  1</span></span>
-<span><span class="co">## 4 2025-02-19 13:20:15 20250219T122015Z-a6c04  1</span></span>
-<span><span class="co">## 5 2025-02-19 13:20:16 20250219T122016Z-28b21  2</span></span>
-<span><span class="co">## 6 2025-02-19 13:20:17 20250219T122017Z-21adc  3</span></span></code></pre>
+<span><span class="co">## 1 2025-02-28 13:23:29 20250228T122329Z-c63c6  1</span></span>
+<span><span class="co">## 2 2025-02-28 13:23:29 20250228T122329Z-e3d6a  2</span></span>
+<span><span class="co">## 3 2025-02-28 13:23:29 20250228T122329Z-166dd  1</span></span>
+<span><span class="co">## 4 2025-02-28 13:23:34 20250228T122334Z-51e08  1</span></span>
+<span><span class="co">## 5 2025-02-28 13:23:35 20250228T122335Z-68fba  2</span></span>
+<span><span class="co">## 6 2025-02-28 13:23:36 20250228T122336Z-c4cfe  3</span></span></code></pre>
 <p>Load density maps into global environment:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/sefra_data.html">sefra_data</a></span><span class="op">(</span><span class="st">"density_maps"</span>, description <span class="op">=</span> <span class="st">"reference"</span><span class="op">)</span></span></code></pre></div>
@@ -104,7 +104,7 @@ Charles Edwards</h4>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name         |description |created             |version                | id|</span></span>
 <span><span class="co">## |:------------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |density_maps |reference   |2025-02-19 13:20:17 |20250219T122017Z-21adc |  3|</span></span></code></pre>
+<span><span class="co">## |density_maps |reference   |2025-02-28 13:23:36 |20250228T122336Z-c4cfe |  3|</span></span></code></pre>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="st">"dam"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">density_maps</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">density_maps</span><span class="op">)</span> <span class="op">==</span> <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
 <p>Load biological inputs into global environment and assign:</p>
@@ -115,7 +115,7 @@ Charles Edwards</h4>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name      |description |created             |version                | id|</span></span>
 <span><span class="co">## |:---------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |inputsBio |reference   |2025-02-19 13:20:11 |20250219T122011Z-c1785 |  2|</span></span></code></pre>
+<span><span class="co">## |inputsBio |reference   |2025-02-28 13:23:29 |20250228T122329Z-e3d6a |  2|</span></span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="st">"N_BP"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">inputs_bio_ref</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Note that loading another set of biological inputs will overwrite
@@ -134,7 +134,7 @@ the other data objects):</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name      |description    |created             |version                | id|</span></span>
 <span><span class="co">## |:---------|:--------------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |inputsBio |2024_CCSBT_SRA |2025-02-19 13:20:11 |20250219T122011Z-6ce6e |  1|</span></span></code></pre>
+<span><span class="co">## |inputsBio |2024_CCSBT_SRA |2025-02-28 13:23:29 |20250228T122329Z-c63c6 |  1|</span></span></code></pre>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">inputsBio</span>, <span class="st">"description"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "inputs for 2024 CCSBT risk assessment"</span></span></code></pre>
@@ -157,8 +157,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dbn: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -168,8 +166,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dcr: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -179,8 +175,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dcu: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -190,8 +184,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ der: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -201,8 +193,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dic: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -212,8 +202,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dim: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -223,8 +211,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dip: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -234,8 +220,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ diq: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -245,8 +229,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ diw: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -256,8 +238,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dix: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -267,8 +247,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dks: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -278,140 +256,6 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ dqs: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ dsb: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ pci: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ pcn: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ pcw: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ phe: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ phu: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ prk: sf [19,008 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 19008; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1811566 2700102 2615259 1754642 1811566 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:19008] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ pro: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ tqh: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ tqw: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  $ twd: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
-<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
-<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
-<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
 <span><span class="co">##  $ dnb: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
@@ -421,9 +265,115 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##   ..- attr(*, "version")=Classes 'package_version', 'numeric_version'  hidden list of 1</span></span>
-<span><span class="co">##   .. ..$ : int [1:3] 2 1 2</span></span>
-<span><span class="co">##  - attr(*, "date")= chr "19-Feb-2025"</span></span>
+<span><span class="co">##  $ dqs: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ dsb: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ pci: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ pcn: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ pcw: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ phe: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ phu: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ prk: sf [19,008 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 19008; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1811566 2700102 2615259 1754642 1811566 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:19008] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ pro: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ tqh: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ tqw: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  $ twd: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
+<span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
+<span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
+<span><span class="co">##  - attr(*, "date")= chr "28-Feb-2025"</span></span>
 <span><span class="co">##  - attr(*, "description")= chr "current density maps for 2025 CCSBT risk assessment"</span></span></code></pre>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">inputs_bio_ref</span><span class="op">)</span></span></code></pre></div>
@@ -472,15 +422,15 @@ the other data objects):</p>
 <span><span class="co">##   ..$ code        : chr [1:25] "DIW" "DQS" "DIX" "DBN" ...</span></span>
 <span><span class="co">##   ..$ common_name : chr [1:25] "Gibson's albatross" "Antipodean albatross" "Wandering albatross" "Tristan albatross" ...</span></span>
 <span><span class="co">##   ..$ distribution: chr [1:25] "log-normal" "log-normal" "log-normal" "weibull" ...</span></span>
-<span><span class="co">##   ..$ par1        : num [1:25] 5400 3255 10072 9.25 60 ...</span></span>
-<span><span class="co">##   ..$ par2        : num [1:25] 0.05 0.05 0.05 1710 0.1 0.14 0.11 0.1 0.1 0.05 ...</span></span>
+<span><span class="co">##   ..$ par1        : num [1:25] 4425 3383 10130 9.25 60 ...</span></span>
+<span><span class="co">##   ..$ par2        : num [1:25] 0.05 0.05 0.05 1710 0.1 0.07 0.11 0.1 0.1 0.05 ...</span></span>
 <span><span class="co">##  $ P_B               :'data.frame':  25 obs. of  6 variables:</span></span>
 <span><span class="co">##   ..$ id_species  : int [1:25] 1 2 3 4 5 6 7 8 9 10 ...</span></span>
 <span><span class="co">##   ..$ code        : chr [1:25] "DIW" "DQS" "DIX" "DBN" ...</span></span>
 <span><span class="co">##   ..$ common_name : chr [1:25] "Gibson's albatross" "Antipodean albatross" "Wandering albatross" "Tristan albatross" ...</span></span>
 <span><span class="co">##   ..$ distribution: chr [1:25] "beta" "beta" "logit-normal" "beta" ...</span></span>
-<span><span class="co">##   ..$ par1        : num [1:25] 0.467 0.364 0.494 0.349 0.6 0.531 0.531 0.596 0.596 0.844 ...</span></span>
-<span><span class="co">##   ..$ par2        : num [1:25] 218 230 0.05 51.3 0.05 22.2 22.2 4100 0.05 174 ...</span></span>
+<span><span class="co">##   ..$ par1        : num [1:25] 0.595 0.45 0.494 0.349 0.6 0.531 0.531 0.596 0.596 0.844 ...</span></span>
+<span><span class="co">##   ..$ par2        : num [1:25] 170 91.3 0.05 51.3 0.05 22.2 22.2 4100 0.05 174 ...</span></span>
 <span><span class="co">##  $ S_curr            :'data.frame':  25 obs. of  6 variables:</span></span>
 <span><span class="co">##   ..$ id_species  : int [1:25] 1 2 3 4 5 6 7 8 9 10 ...</span></span>
 <span><span class="co">##   ..$ code        : chr [1:25] "DIW" "DQS" "DIX" "DBN" ...</span></span>
@@ -509,7 +459,7 @@ the other data objects):</p>
 <span><span class="co">##   ..$ distribution: chr [1:25] "log-normal" "log-normal" "log-normal" "log-normal" ...</span></span>
 <span><span class="co">##   ..$ par1        : num [1:25] 11.9 13.9 9.91 9.18 9.91 9.19 8.9 8.9 8.9 9.91 ...</span></span>
 <span><span class="co">##   ..$ par2        : num [1:25] 0.165 0.142 0.15 0.177 0.15 0.189 0.023 0.165 0.165 0.15 ...</span></span>
-<span><span class="co">##  - attr(*, "date")= chr "19-Feb-2025"</span></span>
+<span><span class="co">##  - attr(*, "date")= chr "28-Feb-2025"</span></span>
 <span><span class="co">##  - attr(*, "description")= chr "current inputs for 2025 CCSBT risk assessment"</span></span></code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

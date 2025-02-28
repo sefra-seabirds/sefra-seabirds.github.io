@@ -60,7 +60,7 @@
                         <h4 data-toc-skip class="author">Tom Peatman and
 Charles Edwards</h4>
             
-            <h4 data-toc-skip class="date">19-Feb-2025</h4>
+            <h4 data-toc-skip class="date">28-Feb-2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefraInputs/blob/HEAD/vignettes/make_inputs.Rmd" class="external-link"><code>vignettes/make_inputs.Rmd</code></a></small>
       <div class="d-none name"><code>make_inputs.Rmd</code></div>
@@ -482,12 +482,12 @@ returns a summary of available biological inputs:</p>
 <span><span class="co">## 5             density_maps 2024_CCSBT_SRA_combined_range_maps</span></span>
 <span><span class="co">## 6             density_maps                          reference</span></span>
 <span><span class="co">##               created                version id</span></span>
-<span><span class="co">## 1 2025-02-19 13:20:11 20250219T122011Z-6ce6e  1</span></span>
-<span><span class="co">## 2 2025-02-19 13:20:11 20250219T122011Z-c1785  2</span></span>
-<span><span class="co">## 3 2025-02-19 13:20:11 20250219T122011Z-166dd  1</span></span>
-<span><span class="co">## 4 2025-02-19 13:20:15 20250219T122015Z-a6c04  1</span></span>
-<span><span class="co">## 5 2025-02-19 13:20:16 20250219T122016Z-28b21  2</span></span>
-<span><span class="co">## 6 2025-02-19 13:20:17 20250219T122017Z-21adc  3</span></span></code></pre>
+<span><span class="co">## 1 2025-02-28 13:23:29 20250228T122329Z-c63c6  1</span></span>
+<span><span class="co">## 2 2025-02-28 13:23:29 20250228T122329Z-e3d6a  2</span></span>
+<span><span class="co">## 3 2025-02-28 13:23:29 20250228T122329Z-166dd  1</span></span>
+<span><span class="co">## 4 2025-02-28 13:23:34 20250228T122334Z-51e08  1</span></span>
+<span><span class="co">## 5 2025-02-28 13:23:35 20250228T122335Z-68fba  2</span></span>
+<span><span class="co">## 6 2025-02-28 13:23:36 20250228T122336Z-c4cfe  3</span></span></code></pre>
 <p>Other data objects that are required, or helpful, when preparing data
 inputs can be accessed through a call to <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code>. To check
 what data are available in the current package build, use:</p>
@@ -506,7 +506,7 @@ what data are available in the current package build, use:</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name      |description |created             |version                | id|</span></span>
 <span><span class="co">## |:---------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |inputsBio |reference   |2025-02-19 13:20:11 |20250219T122011Z-c1785 |  2|</span></span></code></pre>
+<span><span class="co">## |inputsBio |reference   |2025-02-28 13:23:29 |20250228T122329Z-e3d6a |  2|</span></span></code></pre>
 <p>The biological inputs for the 2024 CCSBT risk assessment are also
 available (i.e., <code>description = "2024_CCSBT_SRA"</code>).
 Biological inputs will updated and added the <code>sefraInputs</code>
@@ -558,7 +558,7 @@ where <code>description = "reference"</code>:</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name         |description |created             |version                | id|</span></span>
 <span><span class="co">## |:------------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |density_maps |reference   |2025-02-19 13:20:17 |20250219T122017Z-21adc |  3|</span></span></code></pre>
+<span><span class="co">## |density_maps |reference   |2025-02-28 13:23:36 |20250228T122336Z-c4cfe |  3|</span></span></code></pre>
 <p>Density maps will updated and added the <code>sefraInputs</code>
 package as the project progresses, e.g., updated density maps for
 selected species with additional tracking data, and density maps
@@ -586,6 +586,7 @@ best estimates of the biological inputs:</p>
 <pre><code><span><span class="co">## Created densities_diw</span></span></code></pre>
 <pre><code><span><span class="co">## Created densities_dix</span></span></code></pre>
 <pre><code><span><span class="co">## Created densities_dks</span></span></code></pre>
+<pre><code><span><span class="co">## Created densities_dnb</span></span></code></pre>
 <pre><code><span><span class="co">## Created densities_dqs</span></span></code></pre>
 <pre><code><span><span class="co">## Created densities_dsb</span></span></code></pre>
 <pre><code><span><span class="co">## Created densities_pci</span></span></code></pre>
@@ -598,7 +599,6 @@ best estimates of the biological inputs:</p>
 <pre><code><span><span class="co">## Created densities_tqh</span></span></code></pre>
 <pre><code><span><span class="co">## Created densities_tqw</span></span></code></pre>
 <pre><code><span><span class="co">## Created densities_twd</span></span></code></pre>
-<pre><code><span><span class="co">## Created densities_dnb</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="spatial-grid-definition">Spatial grid definition<a class="anchor" aria-label="anchor" href="#spatial-grid-definition"></a>
@@ -1148,23 +1148,7 @@ level:</p>
 <th align="right">id_species</th>
 <th align="right">id_species_group</th>
 </tr></thead>
-<tbody><tr class="odd">
-<td align="left">Bird</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">Unassigned</td>
-<td align="right">40</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">BLZ</td>
-<td align="left">bird</td>
-<td align="left">FALSE</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr></tbody>
+<tbody></tbody>
 </table>
 <p>Users must map their species codings for seabird captures to the
 corresponding values in <code>sp_codes</code> and
@@ -1939,7 +1923,7 @@ aequinoctialis</td>
 </tr>
 <tr class="even">
 <td align="left">Bird</td>
-<td align="left">NA</td>
+<td align="left">Aves</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -1949,7 +1933,7 @@ aequinoctialis</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 <td align="left">BLZ</td>
-<td align="left">bird</td>
+<td align="left">class</td>
 <td align="left">FALSE</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
@@ -3223,7 +3207,7 @@ captions etc.:</p>
 <td align="left">NZL</td>
 <td align="left">BLZ</td>
 <td align="left">Bird</td>
-<td align="left">bird</td>
+<td align="left">class</td>
 <td align="right">1</td>
 <td align="right">0</td>
 <td align="right">1</td>
@@ -4763,151 +4747,151 @@ captions etc.:</p>
 <td align="left">NZL</td>
 <td align="left">DIW</td>
 <td align="left">Gibson’s albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DQS</td>
 <td align="left">Antipodean albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">DIX</td>
 <td align="left">Wandering albatross</td>
-<td align="right">1.00e-06</td>
+<td align="right">0.0000010</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DBN</td>
 <td align="left">Tristan albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">DAM</td>
 <td align="left">Amsterdam albatross</td>
-<td align="right">1.19e-04</td>
+<td align="right">0.0001191</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DIP</td>
 <td align="left">Southern royal albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">DIQ</td>
 <td align="left">Northern royal albatross</td>
-<td align="right">1.00e-07</td>
+<td align="right">0.0000001</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DCR</td>
 <td align="left">Atlantic yellow-nosed albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">TQH</td>
 <td align="left">Indian yellow-nosed albatross</td>
-<td align="right">5.27e-05</td>
+<td align="right">0.0000530</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DIM</td>
 <td align="left">Black-browed albatross</td>
-<td align="right">6.40e-06</td>
+<td align="right">0.0000070</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">TQW</td>
 <td align="left">Campbell black-browed albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DCU</td>
 <td align="left">Shy albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">TWD</td>
 <td align="left">New Zealand white-capped albatross</td>
-<td align="right">5.00e-07</td>
+<td align="right">0.0000006</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DKS</td>
 <td align="left">Salvin’s albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">DER</td>
 <td align="left">Chatham Island albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DIC</td>
 <td align="left">Grey-headed albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">DSB</td>
 <td align="left">Southern Buller’s albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DNB</td>
 <td align="left">Northern Buller’s albatross</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">PHU</td>
 <td align="left">Sooty albatross</td>
-<td align="right">6.30e-06</td>
+<td align="right">0.0000063</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">PHE</td>
 <td align="left">Light-mantled sooty albatross</td>
-<td align="right">4.00e-07</td>
+<td align="right">0.0000004</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">PCI</td>
 <td align="left">Grey petrel</td>
-<td align="right">1.80e-06</td>
+<td align="right">0.0000018</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">PRK</td>
 <td align="left">Black petrel</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">PCW</td>
 <td align="left">Westland petrel</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">PRO</td>
 <td align="left">White-chinned petrel</td>
-<td align="right">2.90e-06</td>
+<td align="right">0.0000031</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">PCN</td>
 <td align="left">Spectacled petrel</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 </tbody>
 </table>
@@ -4956,10 +4940,10 @@ captions etc.:</p>
 <colgroup>
 <col width="6%">
 <col width="6%">
-<col width="45%">
+<col width="44%">
 <col width="11%">
-<col width="18%">
-<col width="11%">
+<col width="17%">
+<col width="12%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">flag</th>
@@ -4976,7 +4960,7 @@ captions etc.:</p>
 <td align="left">Gibson’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -4984,7 +4968,7 @@ captions etc.:</p>
 <td align="left">Antipodean albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -4992,7 +4976,7 @@ captions etc.:</p>
 <td align="left">Wandering albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">1.00e-06</td>
-<td align="right">1.00e-06</td>
+<td align="right">0.0000010</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5000,15 +4984,15 @@ captions etc.:</p>
 <td align="left">Tristan albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">DAM</td>
 <td align="left">Amsterdam albatross</td>
 <td align="right">6.51e-05</td>
-<td align="right">5.39e-05</td>
-<td align="right">1.19e-04</td>
+<td align="right">5.40e-05</td>
+<td align="right">0.0001191</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5016,7 +5000,7 @@ captions etc.:</p>
 <td align="left">Southern royal albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5024,7 +5008,7 @@ captions etc.:</p>
 <td align="left">Northern royal albatross</td>
 <td align="right">1.00e-07</td>
 <td align="right">0.00e+00</td>
-<td align="right">1.00e-07</td>
+<td align="right">0.0000001</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5032,23 +5016,23 @@ captions etc.:</p>
 <td align="left">Atlantic yellow-nosed albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">TQH</td>
 <td align="left">Indian yellow-nosed albatross</td>
-<td align="right">3.30e-06</td>
+<td align="right">3.50e-06</td>
 <td align="right">4.95e-05</td>
-<td align="right">5.27e-05</td>
+<td align="right">0.0000530</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DIM</td>
 <td align="left">Black-browed albatross</td>
-<td align="right">1.00e-06</td>
-<td align="right">5.30e-06</td>
-<td align="right">6.40e-06</td>
+<td align="right">1.10e-06</td>
+<td align="right">5.90e-06</td>
+<td align="right">0.0000070</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5056,7 +5040,7 @@ captions etc.:</p>
 <td align="left">Campbell black-browed albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5064,15 +5048,15 @@ captions etc.:</p>
 <td align="left">Shy albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">TWD</td>
 <td align="left">New Zealand white-capped albatross</td>
-<td align="right">5.00e-07</td>
+<td align="right">6.00e-07</td>
 <td align="right">0.00e+00</td>
-<td align="right">5.00e-07</td>
+<td align="right">0.0000006</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5080,7 +5064,7 @@ captions etc.:</p>
 <td align="left">Salvin’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5088,7 +5072,7 @@ captions etc.:</p>
 <td align="left">Chatham Island albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5096,7 +5080,7 @@ captions etc.:</p>
 <td align="left">Grey-headed albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5104,7 +5088,7 @@ captions etc.:</p>
 <td align="left">Southern Buller’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5112,7 +5096,7 @@ captions etc.:</p>
 <td align="left">Northern Buller’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5120,7 +5104,7 @@ captions etc.:</p>
 <td align="left">Sooty albatross</td>
 <td align="right">4.90e-06</td>
 <td align="right">1.40e-06</td>
-<td align="right">6.30e-06</td>
+<td align="right">0.0000063</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5128,7 +5112,7 @@ captions etc.:</p>
 <td align="left">Light-mantled sooty albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">4.00e-07</td>
-<td align="right">4.00e-07</td>
+<td align="right">0.0000004</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5136,7 +5120,7 @@ captions etc.:</p>
 <td align="left">Grey petrel</td>
 <td align="right">5.00e-07</td>
 <td align="right">1.30e-06</td>
-<td align="right">1.80e-06</td>
+<td align="right">0.0000018</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5144,7 +5128,7 @@ captions etc.:</p>
 <td align="left">Black petrel</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5152,15 +5136,15 @@ captions etc.:</p>
 <td align="left">Westland petrel</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">PRO</td>
 <td align="left">White-chinned petrel</td>
 <td align="right">0.00e+00</td>
-<td align="right">2.90e-06</td>
-<td align="right">2.90e-06</td>
+<td align="right">3.10e-06</td>
+<td align="right">0.0000031</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5168,7 +5152,7 @@ captions etc.:</p>
 <td align="left">Spectacled petrel</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 </tbody>
 </table>
@@ -5217,10 +5201,10 @@ captions etc.:</p>
 <colgroup>
 <col width="6%">
 <col width="6%">
-<col width="48%">
+<col width="47%">
 <col width="12%">
 <col width="12%">
-<col width="12%">
+<col width="13%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">flag</th>
@@ -5237,7 +5221,7 @@ captions etc.:</p>
 <td align="left">Gibson’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5245,7 +5229,7 @@ captions etc.:</p>
 <td align="left">Antipodean albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5253,7 +5237,7 @@ captions etc.:</p>
 <td align="left">Wandering albatross</td>
 <td align="right">1.00e-06</td>
 <td align="right">0.00e+00</td>
-<td align="right">1.00e-06</td>
+<td align="right">0.0000010</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5261,7 +5245,7 @@ captions etc.:</p>
 <td align="left">Tristan albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5269,7 +5253,7 @@ captions etc.:</p>
 <td align="left">Amsterdam albatross</td>
 <td align="right">6.47e-05</td>
 <td align="right">5.44e-05</td>
-<td align="right">1.19e-04</td>
+<td align="right">0.0001191</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5277,7 +5261,7 @@ captions etc.:</p>
 <td align="left">Southern royal albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5285,7 +5269,7 @@ captions etc.:</p>
 <td align="left">Northern royal albatross</td>
 <td align="right">1.00e-07</td>
 <td align="right">0.00e+00</td>
-<td align="right">1.00e-07</td>
+<td align="right">0.0000001</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5293,23 +5277,23 @@ captions etc.:</p>
 <td align="left">Atlantic yellow-nosed albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">TQH</td>
 <td align="left">Indian yellow-nosed albatross</td>
-<td align="right">2.60e-05</td>
-<td align="right">2.67e-05</td>
-<td align="right">5.27e-05</td>
+<td align="right">2.61e-05</td>
+<td align="right">2.68e-05</td>
+<td align="right">0.0000530</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">DIM</td>
 <td align="left">Black-browed albatross</td>
-<td align="right">3.10e-06</td>
-<td align="right">3.20e-06</td>
-<td align="right">6.40e-06</td>
+<td align="right">3.40e-06</td>
+<td align="right">3.60e-06</td>
+<td align="right">0.0000070</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5317,7 +5301,7 @@ captions etc.:</p>
 <td align="left">Campbell black-browed albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5325,7 +5309,7 @@ captions etc.:</p>
 <td align="left">Shy albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5333,7 +5317,7 @@ captions etc.:</p>
 <td align="left">New Zealand white-capped albatross</td>
 <td align="right">3.00e-07</td>
 <td align="right">2.00e-07</td>
-<td align="right">5.00e-07</td>
+<td align="right">0.0000006</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5341,7 +5325,7 @@ captions etc.:</p>
 <td align="left">Salvin’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5349,7 +5333,7 @@ captions etc.:</p>
 <td align="left">Chatham Island albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5357,7 +5341,7 @@ captions etc.:</p>
 <td align="left">Grey-headed albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5365,7 +5349,7 @@ captions etc.:</p>
 <td align="left">Southern Buller’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5373,15 +5357,15 @@ captions etc.:</p>
 <td align="left">Northern Buller’s albatross</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
 <td align="left">PHU</td>
 <td align="left">Sooty albatross</td>
 <td align="right">3.60e-06</td>
-<td align="right">2.60e-06</td>
-<td align="right">6.30e-06</td>
+<td align="right">2.70e-06</td>
+<td align="right">0.0000063</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5389,7 +5373,7 @@ captions etc.:</p>
 <td align="left">Light-mantled sooty albatross</td>
 <td align="right">4.00e-07</td>
 <td align="right">0.00e+00</td>
-<td align="right">4.00e-07</td>
+<td align="right">0.0000004</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5397,7 +5381,7 @@ captions etc.:</p>
 <td align="left">Grey petrel</td>
 <td align="right">1.50e-06</td>
 <td align="right">4.00e-07</td>
-<td align="right">1.80e-06</td>
+<td align="right">0.0000018</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
@@ -5405,7 +5389,7 @@ captions etc.:</p>
 <td align="left">Black petrel</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5413,15 +5397,15 @@ captions etc.:</p>
 <td align="left">Westland petrel</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 <tr class="even">
 <td align="left">NZL</td>
 <td align="left">PRO</td>
 <td align="left">White-chinned petrel</td>
-<td align="right">1.40e-06</td>
+<td align="right">1.50e-06</td>
 <td align="right">1.60e-06</td>
-<td align="right">2.90e-06</td>
+<td align="right">0.0000031</td>
 </tr>
 <tr class="odd">
 <td align="left">NZL</td>
@@ -5429,7 +5413,7 @@ captions etc.:</p>
 <td align="left">Spectacled petrel</td>
 <td align="right">0.00e+00</td>
 <td align="right">0.00e+00</td>
-<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
 </tr>
 </tbody>
 </table>
