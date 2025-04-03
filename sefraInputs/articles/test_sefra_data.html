@@ -60,7 +60,7 @@
                         <h4 data-toc-skip class="author">Tom Peatman and
 Charles Edwards</h4>
             
-            <h4 data-toc-skip class="date">28-Feb-2025</h4>
+            <h4 data-toc-skip class="date">03-Apr-2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefraInputs/blob/HEAD/vignettes/test_sefra_data.Rmd" class="external-link"><code>vignettes/test_sefra_data.Rmd</code></a></small>
       <div class="d-none name"><code>test_sefra_data.Rmd</code></div>
@@ -89,13 +89,15 @@ Charles Edwards</h4>
 <span><span class="co">## 4             density_maps                     2024_CCSBT_SRA</span></span>
 <span><span class="co">## 5             density_maps 2024_CCSBT_SRA_combined_range_maps</span></span>
 <span><span class="co">## 6             density_maps                          reference</span></span>
+<span><span class="co">## 7             density_maps      reference_combined_range_maps</span></span>
 <span><span class="co">##               created                version id</span></span>
-<span><span class="co">## 1 2025-02-28 13:23:29 20250228T122329Z-c63c6  1</span></span>
-<span><span class="co">## 2 2025-02-28 13:23:29 20250228T122329Z-e3d6a  2</span></span>
-<span><span class="co">## 3 2025-02-28 13:23:29 20250228T122329Z-166dd  1</span></span>
-<span><span class="co">## 4 2025-02-28 13:23:34 20250228T122334Z-51e08  1</span></span>
-<span><span class="co">## 5 2025-02-28 13:23:35 20250228T122335Z-68fba  2</span></span>
-<span><span class="co">## 6 2025-02-28 13:23:36 20250228T122336Z-c4cfe  3</span></span></code></pre>
+<span><span class="co">## 1 2025-03-27 12:25:55 20250327T112555Z-1dd6f  1</span></span>
+<span><span class="co">## 2 2025-03-27 12:25:55 20250327T112555Z-ed41c  2</span></span>
+<span><span class="co">## 3 2025-03-27 12:25:55 20250327T112555Z-240cc  1</span></span>
+<span><span class="co">## 4 2025-03-27 12:26:01 20250327T112601Z-e6ac4  1</span></span>
+<span><span class="co">## 5 2025-03-27 12:26:02 20250327T112602Z-80743  2</span></span>
+<span><span class="co">## 6 2025-03-27 12:26:03 20250327T112603Z-92e7d  3</span></span>
+<span><span class="co">## 7 2025-03-27 12:26:04 20250327T112604Z-a6ad2  4</span></span></code></pre>
 <p>Load density maps into global environment:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/sefra_data.html">sefra_data</a></span><span class="op">(</span><span class="st">"density_maps"</span>, description <span class="op">=</span> <span class="st">"reference"</span><span class="op">)</span></span></code></pre></div>
@@ -104,7 +106,7 @@ Charles Edwards</h4>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name         |description |created             |version                | id|</span></span>
 <span><span class="co">## |:------------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |density_maps |reference   |2025-02-28 13:23:36 |20250228T122336Z-c4cfe |  3|</span></span></code></pre>
+<span><span class="co">## |density_maps |reference   |2025-03-27 12:26:03 |20250327T112603Z-92e7d |  3|</span></span></code></pre>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="st">"dam"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">density_maps</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">density_maps</span><span class="op">)</span> <span class="op">==</span> <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
 <p>Load biological inputs into global environment and assign:</p>
@@ -115,7 +117,7 @@ Charles Edwards</h4>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name      |description |created             |version                | id|</span></span>
 <span><span class="co">## |:---------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |inputsBio |reference   |2025-02-28 13:23:29 |20250228T122329Z-e3d6a |  2|</span></span></code></pre>
+<span><span class="co">## |inputsBio |reference   |2025-03-27 12:25:55 |20250327T112555Z-ed41c |  2|</span></span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="st">"N_BP"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">inputs_bio_ref</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Note that loading another set of biological inputs will overwrite
@@ -134,7 +136,7 @@ the other data objects):</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name      |description    |created             |version                | id|</span></span>
 <span><span class="co">## |:---------|:--------------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |inputsBio |2024_CCSBT_SRA |2025-02-28 13:23:29 |20250228T122329Z-c63c6 |  1|</span></span></code></pre>
+<span><span class="co">## |inputsBio |2024_CCSBT_SRA |2025-03-27 12:25:55 |20250327T112555Z-1dd6f |  1|</span></span></code></pre>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">inputsBio</span>, <span class="st">"description"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "inputs for 2024 CCSBT risk assessment"</span></span></code></pre>
@@ -166,12 +168,12 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##  $ dcr: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##  $ dcr: sf [17,280 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 17280; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1694427 2525509 2431017 1631030 1694427 ...</span></span>
 <span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
 <span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:17280] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
@@ -229,12 +231,12 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##  $ diw: sf [15,552 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
-<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
-<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
+<span><span class="co">##  $ diw: sf [17,280 × 3] (S3: sf/tbl_df/tbl/data.frame)</span></span>
+<span><span class="co">##   ..$ geometry:sfc_POLYGON of length 17280; first list element: List of 1</span></span>
+<span><span class="co">##   .. ..$ : num [1:5, 1:2] 1694427 2525509 2431017 1631030 1694427 ...</span></span>
 <span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
 <span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
-<span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">##   ..$ value   : num [1:17280] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
@@ -260,7 +262,7 @@ the other data objects):</p>
 <span><span class="co">##   ..$ geometry:sfc_POLYGON of length 15552; first list element: List of 1</span></span>
 <span><span class="co">##   .. ..$ : num [1:5, 1:2] 1564564 2331950 2228485 1495146 1564564 ...</span></span>
 <span><span class="co">##   .. ..- attr(*, "class")= chr [1:3] "XY" "POLYGON" "sfg"</span></span>
-<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 10 11 12 1 2 3 4 5 6 7 ...</span></span>
+<span><span class="co">##   ..$ month   : Factor w/ 12 levels "Jan","Feb","Mar",..: 1 2 3 4 5 6 7 8 9 10 ...</span></span>
 <span><span class="co">##   ..$ value   : num [1:15552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
@@ -373,7 +375,7 @@ the other data objects):</p>
 <span><span class="co">##   ..- attr(*, "sf_column")= chr "geometry"</span></span>
 <span><span class="co">##   ..- attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA</span></span>
 <span><span class="co">##   .. ..- attr(*, "names")= chr [1:2] "month" "value"</span></span>
-<span><span class="co">##  - attr(*, "date")= chr "28-Feb-2025"</span></span>
+<span><span class="co">##  - attr(*, "date")= chr "27-Mar-2025"</span></span>
 <span><span class="co">##  - attr(*, "description")= chr "current density maps for 2025 CCSBT risk assessment"</span></span></code></pre>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">inputs_bio_ref</span><span class="op">)</span></span></code></pre></div>
@@ -459,7 +461,7 @@ the other data objects):</p>
 <span><span class="co">##   ..$ distribution: chr [1:25] "log-normal" "log-normal" "log-normal" "log-normal" ...</span></span>
 <span><span class="co">##   ..$ par1        : num [1:25] 11.9 13.9 9.91 9.18 9.91 9.19 8.9 8.9 8.9 9.91 ...</span></span>
 <span><span class="co">##   ..$ par2        : num [1:25] 0.165 0.142 0.15 0.177 0.15 0.189 0.023 0.165 0.165 0.15 ...</span></span>
-<span><span class="co">##  - attr(*, "date")= chr "28-Feb-2025"</span></span>
+<span><span class="co">##  - attr(*, "date")= chr "27-Mar-2025"</span></span>
 <span><span class="co">##  - attr(*, "description")= chr "current inputs for 2025 CCSBT risk assessment"</span></span></code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -473,7 +475,7 @@ the other data objects):</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
