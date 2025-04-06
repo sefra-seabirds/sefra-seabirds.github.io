@@ -59,7 +59,7 @@
                         <h4 data-toc-skip class="author">Charles Edwards
 and Tom Peatman</h4>
             
-            <h4 data-toc-skip class="date">03 Apr 2025</h4>
+            <h4 data-toc-skip class="date">06 Apr 2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefra/blob/HEAD/vignettes/run_model.Rmd" class="external-link"><code>vignettes/run_model.Rmd</code></a></small>
       <div class="d-none name"><code>run_model.Rmd</code></div>
@@ -80,7 +80,7 @@ and Tom Peatman</h4>
 </h2>
 <p>Source data from <code>sefraInputs</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://sefra-seabirds.github.io/sefraInputs/reference/sefra_data.html">sefra_data</a></span><span class="op">(</span><span class="st">"inputsBio"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/sefraInputs/man/sefra_data.html" class="external-link">sefra_data</a></span><span class="op">(</span><span class="st">"inputsBio"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Loaded data:</span></span></code></pre>
 <pre><code><span><span class="co">## </span></span>
 <span><span class="co">## </span></span>
@@ -88,7 +88,7 @@ and Tom Peatman</h4>
 <span><span class="co">## |:---------|:-----------|:-------------------|:----------------------|--:|</span></span>
 <span><span class="co">## |inputsBio |reference   |2025-03-27 12:25:55 |20250327T112555Z-ed41c |  2|</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://sefra-seabirds.github.io/sefraInputs/reference/sefra_data.html">sefra_data</a></span><span class="op">(</span><span class="st">"cryptic_capture_longline"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/sefraInputs/man/sefra_data.html" class="external-link">sefra_data</a></span><span class="op">(</span><span class="st">"cryptic_capture_longline"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Loaded data:</span></span></code></pre>
 <pre><code><span><span class="co">## </span></span>
 <span><span class="co">## </span></span>
@@ -177,7 +177,7 @@ lower level taxonomic codes. In the current example:</p>
 <h3 id="assign-biological-data">Assign biological data<a class="anchor" aria-label="anchor" href="#assign-biological-data"></a>
 </h3>
 <p>From the <code>inputsBio</code> data accessed using
-<code><a href="https://sefra-seabirds.github.io/sefraInputs/reference/sefra_data.html">sefraInputs::sefra_data()</a></code>, we assign these to the
+<code><a href="https://rdrr.io/pkg/sefraInputs/man/sefra_data.html" class="external-link">sefraInputs::sefra_data()</a></code>, we assign these to the
 <code>sefraData</code> object. Assignment functions are provided for
 each data type, and automatically select the required species:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
@@ -877,7 +877,7 @@ resolution.</p>
 <pre><code><span><span class="co">## Trying to compile a simple C file</span></span></code></pre>
 <pre><code><span><span class="co">## Running "C:/R/bin/x64/Rcmd.exe" SHLIB foo.c</span></span>
 <span><span class="co">## using C compiler: 'gcc.exe (GCC) 13.2.0'</span></span>
-<span><span class="co">## make[1]: Entering directory '/c/Users/ctted/AppData/Local/Temp/Rtmp8KLi3a'</span></span>
+<span><span class="co">## make[1]: Entering directory '/c/Users/ctted/AppData/Local/Temp/RtmpGsJ18v'</span></span>
 <span><span class="co">## gcc  -I"C:/R/include" -DNDEBUG   -I"C:/Rlibrary/Rcpp/include/"  -I"C:/Rlibrary/RcppEigen/include/"  -I"C:/Rlibrary/RcppEigen/include/unsupported"  -I"C:/Rlibrary/BH/include" -I"C:/Rlibrary/StanHeaders/include/src/"  -I"C:/Rlibrary/StanHeaders/include/"  -I"C:/Rlibrary/RcppParallel/include/" -DRCPP_PARALLEL_USE_TBB=1 -I"C:/Rlibrary/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include "C:/Rlibrary/StanHeaders/include/stan/math/prim/fun/Eigen.hpp"  -std=c++1y    -I"C:/rtools44/x86_64-w64-mingw32.static.posix/include"     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c foo.c -o foo.o</span></span>
 <span><span class="co">## cc1.exe: warning: command-line option '-std=c++14' is valid for C++/ObjC++ but not for C</span></span>
 <span><span class="co">## In file included from C:/Rlibrary/RcppEigen/include/Eigen/Core:19,</span></span>
@@ -889,7 +889,7 @@ resolution.</p>
 <span><span class="co">##       |          ^~~~~~~</span></span>
 <span><span class="co">## compilation terminated.</span></span>
 <span><span class="co">## make[1]: *** [C:/R/etc/x64/Makeconf:289: foo.o] Error 1</span></span>
-<span><span class="co">## make[1]: Leaving directory '/c/Users/ctted/AppData/Local/Temp/Rtmp8KLi3a'</span></span></code></pre>
+<span><span class="co">## make[1]: Leaving directory '/c/Users/ctted/AppData/Local/Temp/RtmpGsJ18v'</span></span></code></pre>
 <pre><code><span><span class="co">## WARNING: Rtools is required to build R packages, but is not currently installed.</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Please download and install the appropriate version of Rtools for 4.4.3 from</span></span>
