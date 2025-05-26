@@ -16,4 +16,4 @@ Edwards, C.T.T.; Peatman, T.; Gibson, W. (2025). [Seabird risk assessment method
 
 [report1]: https://www.mpi.govt.nz/dmsdocument/57181/direct
 [report2]: https://www.mpi.govt.nz/dmsdocument/59464/direct
-[report3:] https://www.mpi.govt.nz/dmsdocument/69273/direct
+[report3]: https://www.mpi.govt.nz/dmsdocument/69273/direct
