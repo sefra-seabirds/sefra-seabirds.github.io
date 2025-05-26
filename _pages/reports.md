@@ -12,5 +12,8 @@ Extension to fisheries beyond the New Zealand exclusive economic zone is describ
 
 Edwards, C.T.T.; Peatman, T.; Roberts, J.O.; Devine, J.A.; Hoyle, S.D. (2023). [Updated fisheries risk assessment framework for seabirds in the Southern Hemisphere][report2]. New Zealand Aquatic Environment and Biodiversity Report No. 321. 103 p.
 
+Edwards, C.T.T.; Peatman, T.; Gibson, W. (2025). [Seabird risk assessment methods for the Southern Bluefin Tuna surface longline fishery][report3]. New Zealand Aquatic Environment and Biodiversity Report No. 357. 18 p.
+
 [report1]: https://www.mpi.govt.nz/dmsdocument/57181/direct
 [report2]: https://www.mpi.govt.nz/dmsdocument/59464/direct
+[report3:] https://www.mpi.govt.nz/dmsdocument/69273/direct
