@@ -2,12 +2,11 @@
 permalink: /objective/
 title: "Research objective"
 sidebar: 
-  - title: "Constantia"
-    image: /assets/images/seabird_small.jpg
+  - image: /assets/images/ccsbt_logo.jpg
 ---
 
 
-<style>body {text-align: left}</style>
+<style>body {text-align: justify}</style>
 
 The incidental catch of charismatic mega-fauna by fisheries, particularly on the high seas, is recognised as a risk to the viability of these species. Scientific methods that are able to measure this risk, to allow management that is informed, and to identify the success or failure of current interventions, are being actively researched. The Spatially Explicit Fisheries Risk Assessment (SEFRA) framework in one such method, and has been developed to fulfill the need for managers to better understand the effects of fishing on vulnerable species.
 
