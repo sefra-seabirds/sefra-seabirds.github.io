@@ -1,11 +1,11 @@
 ---
-title: "SEFRA"
 permalink: /science/
 layout: single
+toc: true
 ---
-
 <style>body {text-align: justify}</style>
 
+# SEFRA
 The Spatially Explicit Fisheries Risk Assessment (SEFRA[^1]) framework has been developed and utilised in New Zealand and is now standard procedure for estimating the risk to seabirds from commercial fishing[^2][^3][^4]. The approach is designed to accommodate multiple species and fisheries simultaneously, constructing risk profiles as a function of spatial and temporal overlap. Application has been primarily within the New Zealand Exclusive Economic Zone (EEZ), but, since seabirds can migrate widely across the southern hemisphere, a comprehensive assessment of the fisheries risk needs to account for all the fishing effort that may be encountered as they move through international waters. This, as well as the need to inform management outside of the New Zealand EEZ, has motivated application of the method in this wider context[^5][^6][^7][^8][^9][^10].
 
 The SEFRA approach is a quasi-spatial model where temporal and spatial overlap of the seabird distribution and fishing effort are used as a covariate with which to predict the captures. Parameterisation of the capture rate per unit of overlap occurs via a fit to fisheries observer capture data, and total captures are then calculated by multiplication of the total overlap (including the unobserved component) with this estimated rate (referred to as the catchability). Deaths are calculated from the predicted captures using a mortality multiplier that accounts for the probability of dead capture and cryptic mortality. Following estimation of the total deaths, the SEFRA approach attempts to quantify the risk using a limit reference point referred to as the Population Sustainability Threshold (PST[^1]):
@@ -51,6 +51,7 @@ At the 13th meeting of the CCSBT ERSWG in 2019, an initial assessment of global 
 A range of actions to be undertaken under each specific objective of the Multi-year Seabird Strategy was developed at the 14th meeting of ERSWG in 2021 and adopted by the 29th Annual meeting of CCSBT, which included an action to ''update SEFRA seabird risk assessment,'' with New Zealand and Japan taking a leading role, and was successfully concluded in 2024[^21]. The current project is a continuation of this work. As well as meeting the objectives of the CCSBT ERSWG, it is hoped that it will provide a foundation for work across tRFMOs by developing methods suitable for assessing the incidental bycatch of seabird in their respective fisheries.
 
 -----------------------------------
+# References
 
 [^1]: Sharp, B.R. (2019). Spatially Explicit Fisheries Risk Assessment: A framework for quantifying and managing incidental commercial fisheries impacts on non-target species. Chapter 3, pp. 18–55, in Ministry for Primary Industries (2019). Aquatic Environment and Biodiversity Annual Review 2018. Compiled by the Fisheries Science Team, Ministry for Primary Industries, Wellington New Zealand. 704 p.
 
