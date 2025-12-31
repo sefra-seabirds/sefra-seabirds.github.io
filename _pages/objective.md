@@ -2,8 +2,10 @@
 permalink: /objective/
 title: "Research objective"
 sidebar: 
-  image: assets/images/seabird_small.jpg
+  - title: "Constantia"
+    image: /assets/images/seabird_small.jpg
 ---
+
 
 <style>body {text-align: left}</style>
 
