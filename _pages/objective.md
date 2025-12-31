@@ -2,7 +2,7 @@
 permalink: /objective/
 title: "Research objective"
 sidebar: 
-  - title: "Commission for the Conservation of Southern Bluefin Tuna"
+  - title: ""
     image: /assets/images/ccsbt_logo.svg
 ---
 
