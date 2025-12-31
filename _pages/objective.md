@@ -1,9 +1,9 @@
 ---
 permalink: /objective/
 title: "Research objective"
+sidebar: 
+  image: seabird_small.jpg
 ---
-
-<img src="{{site.url}}/assets/images/seabird_small.jpg" align="left" style="display: block; margin: true;"/>
 
 <style>body {text-align: left}</style>
 
