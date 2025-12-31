@@ -3,7 +3,7 @@ permalink: /objective/
 title: "Research objective"
 ---
 
-<img src="{{site.url}}/assets/images/seabird_small.jpg" align="right" style="display: block; margin: auto;"/>
+<img src="{{site.url}}/assets/images/seabird_small.jpg" align="left" style="display: block; margin: true;"/>
 
 <style>body {text-align: left}</style>
 
