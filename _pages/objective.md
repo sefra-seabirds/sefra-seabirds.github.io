@@ -2,7 +2,8 @@
 permalink: /objective/
 title: "Research objective"
 sidebar: 
-  - image: /assets/images/ccsbt_logo.jpg
+  - title: ""
+    image: /assets/images/ccsbt_logo.jpg
 ---
 
 
