@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">sefra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
                         <h4 data-toc-skip class="author">Charles Edwards
 and Tom Peatman</h4>
             
-            <h4 data-toc-skip class="date">31 Dec 2025</h4>
+            <h4 data-toc-skip class="date">06 Apr 2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/sefra-seabirds/sefra/blob/HEAD/vignettes/run_model.Rmd" class="external-link"><code>vignettes/run_model.Rmd</code></a></small>
       <div class="d-none name"><code>run_model.Rmd</code></div>
@@ -72,8 +72,6 @@ and Tom Peatman</h4>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sefra-seabirds/sefra" class="external-link">sefra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sefra-seabirds/sefraInputs" class="external-link">sefraInputs</a></span><span class="op">)</span></span></code></pre></div>
@@ -88,7 +86,7 @@ and Tom Peatman</h4>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name      |description |created             |version                | id|</span></span>
 <span><span class="co">## |:---------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |inputsBio |reference   |2025-03-27 11:25:55 |20250327T112555Z-ed41c |  2|</span></span></code></pre>
+<span><span class="co">## |inputsBio |reference   |2025-03-27 12:25:55 |20250327T112555Z-ed41c |  2|</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/sefraInputs/man/sefra_data.html" class="external-link">sefra_data</a></span><span class="op">(</span><span class="st">"cryptic_capture_longline"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Loaded data:</span></span></code></pre>
@@ -96,7 +94,7 @@ and Tom Peatman</h4>
 <span><span class="co">## </span></span>
 <span><span class="co">## |name                     |description |created             |version                | id|</span></span>
 <span><span class="co">## |:------------------------|:-----------|:-------------------|:----------------------|--:|</span></span>
-<span><span class="co">## |cryptic_capture_longline |reference   |2025-03-27 11:25:55 |20250327T112555Z-240cc |  1|</span></span></code></pre>
+<span><span class="co">## |cryptic_capture_longline |reference   |2025-03-27 12:25:55 |20250327T112555Z-240cc |  1|</span></span></code></pre>
 <p>Extract biological data for <code>reference</code> case:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import demographic data</span></span>
@@ -126,7 +124,7 @@ run.</p>
 <p>First, initialise the data object using three example species:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sefra_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sefraData-class.html">sefraData</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'DIW'</span>, <span class="st">'DQS'</span>, <span class="st">'TWD'</span><span class="op">)</span>, name <span class="op">=</span> <span class="st">"reference"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## species codes input: including all species-dependent capture codes</span></span></code></pre>
+<pre><code><span><span class="co">## species codes input: including all possible capture codes</span></span></code></pre>
 <pre><code><span><span class="co">## constructed 'sefraData' object</span></span></code></pre>
 <p>When choosing the species we are assuming that all captures are from
 one of these species, even if the capture code recorded in the capture
@@ -377,75 +375,75 @@ and <code>overlap_t</code>.</p>
 <tbody>
 <tr class="odd">
 <td align="right">0</td>
-<td align="right">708</td>
-<td align="right">2016</td>
-<td align="left">DQS</td>
-<td align="left">Jun</td>
-<td align="left">F1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">6</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">691</td>
-<td align="right">2018</td>
-<td align="left">DQS</td>
-<td align="left">Jun</td>
-<td align="left">F1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">6</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">684</td>
+<td align="right">700</td>
 <td align="right">2008</td>
-<td align="left">DIW</td>
-<td align="left">Mar</td>
-<td align="left">F1</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">687</td>
-<td align="right">2007</td>
-<td align="left">TWD</td>
-<td align="left">Jan</td>
-<td align="left">F1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">688</td>
-<td align="right">2012</td>
 <td align="left">DQS</td>
-<td align="left">Dec</td>
+<td align="left">Sep</td>
 <td align="left">F2</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">12</td>
+<td align="right">9</td>
 <td align="right">2</td>
 </tr>
 <tr class="even">
 <td align="right">0</td>
-<td align="right">770</td>
-<td align="right">2020</td>
-<td align="left">BLZ</td>
+<td align="right">327</td>
+<td align="right">2005</td>
+<td align="left">DIZ</td>
 <td align="left">Aug</td>
 <td align="left">F2</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">8</td>
 <td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">704</td>
+<td align="right">2017</td>
+<td align="left">DQS</td>
+<td align="left">Sep</td>
+<td align="left">F1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">9</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">909</td>
+<td align="right">2006</td>
+<td align="left">TWD</td>
+<td align="left">Sep</td>
+<td align="left">F2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">9</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">186</td>
+<td align="right">2010</td>
+<td align="left">DIW</td>
+<td align="left">Jun</td>
+<td align="left">F1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">263</td>
+<td align="right">2015</td>
+<td align="left">TWD</td>
+<td align="left">Sep</td>
+<td align="left">F1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">9</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
@@ -472,57 +470,57 @@ and <code>overlap_t</code>.</p>
 <tbody>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">6</td>
-<td align="right">1</td>
+<td align="right">9</td>
 <td align="right">2</td>
-<td align="right">2016</td>
-<td align="right">708</td>
-<td align="right">0.0004098</td>
-</tr>
-<tr class="even">
 <td align="right">2</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">2018</td>
-<td align="right">691</td>
-<td align="right">0.0002191</td>
-</tr>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">1</td>
 <td align="right">2008</td>
-<td align="right">684</td>
-<td align="right">0.0003939</td>
-</tr>
-<tr class="even">
-<td align="right">13</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">2007</td>
-<td align="right">687</td>
-<td align="right">0.0005376</td>
-</tr>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">12</td>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">2012</td>
-<td align="right">688</td>
-<td align="right">0.0008761</td>
+<td align="right">700</td>
+<td align="right">0.0006489</td>
 </tr>
 <tr class="even">
 <td align="right">2</td>
 <td align="right">8</td>
 <td align="right">2</td>
 <td align="right">2</td>
-<td align="right">2020</td>
-<td align="right">770</td>
-<td align="right">0.0008146</td>
+<td align="right">2005</td>
+<td align="right">327</td>
+<td align="right">0.0003481</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">2017</td>
+<td align="right">704</td>
+<td align="right">0.0004360</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">9</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2006</td>
+<td align="right">909</td>
+<td align="right">0.0009274</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2010</td>
+<td align="right">186</td>
+<td align="right">0.0007493</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2015</td>
+<td align="right">263</td>
+<td align="right">0.0005270</td>
 </tr>
 </tbody>
 </table>
@@ -549,57 +547,57 @@ and <code>overlap_t</code>.</p>
 <tbody>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">6</td>
-<td align="right">1</td>
+<td align="right">9</td>
 <td align="right">2</td>
-<td align="right">2016</td>
-<td align="right">708</td>
-<td align="right">0.0008923</td>
-</tr>
-<tr class="even">
 <td align="right">2</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">2018</td>
-<td align="right">691</td>
-<td align="right">0.0007787</td>
-</tr>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">1</td>
 <td align="right">2008</td>
-<td align="right">684</td>
-<td align="right">0.0002149</td>
-</tr>
-<tr class="even">
-<td align="right">13</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">2007</td>
-<td align="right">687</td>
-<td align="right">0.0004784</td>
-</tr>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">12</td>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">2012</td>
-<td align="right">688</td>
-<td align="right">0.0007050</td>
+<td align="right">700</td>
+<td align="right">0.0009973</td>
 </tr>
 <tr class="even">
 <td align="right">2</td>
 <td align="right">8</td>
 <td align="right">2</td>
 <td align="right">2</td>
-<td align="right">2020</td>
-<td align="right">770</td>
-<td align="right">0.0001145</td>
+<td align="right">2005</td>
+<td align="right">327</td>
+<td align="right">0.0006618</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">2017</td>
+<td align="right">704</td>
+<td align="right">0.0005981</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">9</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2006</td>
+<td align="right">909</td>
+<td align="right">0.0008382</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2010</td>
+<td align="right">186</td>
+<td align="right">0.0000331</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2015</td>
+<td align="right">263</td>
+<td align="right">0.0005699</td>
 </tr>
 </tbody>
 </table>
@@ -658,16 +656,16 @@ viewed using:</p>
 <pre><code><span><span class="co">## 10 capture codes:</span></span></code></pre>
 <pre><code><span><span class="co">## Joining with `by = join_by(id_code)`</span></span></code></pre>
 <pre><code><span><span class="co">##    code id_code resolution id_resolution captures</span></span>
-<span><span class="co">## 1   DIW       1    species             1       27</span></span>
-<span><span class="co">## 2   DQS       2    species             1       26</span></span>
-<span><span class="co">## 3   TWD      13    species             1       23</span></span>
+<span><span class="co">## 1   DIW       1    species             1       26</span></span>
+<span><span class="co">## 2   DQS       2    species             1       23</span></span>
+<span><span class="co">## 3   TWD      13    species             1       21</span></span>
 <span><span class="co">## 4   DGA      26    complex             2        0</span></span>
 <span><span class="co">## 5   DST      29    complex             2        0</span></span>
 <span><span class="co">## 6   DWC      32    complex             2        0</span></span>
-<span><span class="co">## 7   DIZ      34      genus             3       21</span></span>
-<span><span class="co">## 8   THZ      35      genus             3       10</span></span>
+<span><span class="co">## 7   DIZ      34      genus             3       19</span></span>
+<span><span class="co">## 8   THZ      35      genus             3        5</span></span>
 <span><span class="co">## 9   ALZ      38     family             4        0</span></span>
-<span><span class="co">## 10  BLZ      40      class             5       21</span></span></code></pre>
+<span><span class="co">## 10  BLZ      40      class             5       25</span></span></code></pre>
 <p>or by taxonomic resolution using:</p>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/capture_resolutions.html">capture_resolutions</a></span><span class="op">(</span><span class="va">sefra_dat</span><span class="op">)</span></span></code></pre></div>
@@ -675,24 +673,24 @@ viewed using:</p>
 <pre><code><span><span class="co">## Joining with `by = join_by(id_fishery_group, id_code)`</span></span></code></pre>
 <pre><code><span><span class="co">##    id_fishery_group id_resolution resolution captures</span></span>
 <span><span class="co">## 1                 1             1    complex        0</span></span>
-<span><span class="co">## 2                 1             1    species       12</span></span>
-<span><span class="co">## 3                 1             2      genus       10</span></span>
+<span><span class="co">## 2                 1             1    species       10</span></span>
+<span><span class="co">## 3                 1             2      genus        7</span></span>
 <span><span class="co">## 4                 1             2    species       13</span></span>
-<span><span class="co">## 5                 1             3      genus        3</span></span>
-<span><span class="co">## 6                 1             3    species       11</span></span>
+<span><span class="co">## 5                 1             3      genus        4</span></span>
+<span><span class="co">## 6                 1             3    species        7</span></span>
 <span><span class="co">## 7                 1             4    complex        0</span></span>
 <span><span class="co">## 8                 1             4     family        0</span></span>
-<span><span class="co">## 9                 1             5      class       13</span></span>
+<span><span class="co">## 9                 1             5      class       14</span></span>
 <span><span class="co">## 10                1             5    complex        0</span></span>
 <span><span class="co">## 11                2             1    complex        0</span></span>
-<span><span class="co">## 12                2             1    species       15</span></span>
-<span><span class="co">## 13                2             2      genus       11</span></span>
-<span><span class="co">## 14                2             2    species       13</span></span>
-<span><span class="co">## 15                2             3      genus        7</span></span>
-<span><span class="co">## 16                2             3    species       12</span></span>
+<span><span class="co">## 12                2             1    species       16</span></span>
+<span><span class="co">## 13                2             2      genus       12</span></span>
+<span><span class="co">## 14                2             2    species       10</span></span>
+<span><span class="co">## 15                2             3      genus        1</span></span>
+<span><span class="co">## 16                2             3    species       14</span></span>
 <span><span class="co">## 17                2             4    complex        0</span></span>
 <span><span class="co">## 18                2             4     family        0</span></span>
-<span><span class="co">## 19                2             5      class        8</span></span>
+<span><span class="co">## 19                2             5      class       11</span></span>
 <span><span class="co">## 20                2             5    complex        0</span></span></code></pre>
 <p>In the latter case, captures are disaggregated by fishery group.</p>
 <p>To assign the commercial overlap data use:</p>
@@ -725,112 +723,112 @@ viewed using:</p>
 <pre><code><span><span class="co">## 10 capture codes:</span></span></code></pre>
 <pre><code><span><span class="co">## Joining with `by = join_by(id_code)`</span></span></code></pre>
 <pre><code><span><span class="co">##    code id_code resolution id_resolution captures</span></span>
-<span><span class="co">## 1   DIW       1    species             1       27</span></span>
-<span><span class="co">## 2   DQS       2    species             1       26</span></span>
-<span><span class="co">## 3   TWD      13    species             1       23</span></span>
+<span><span class="co">## 1   DIW       1    species             1       26</span></span>
+<span><span class="co">## 2   DQS       2    species             1       23</span></span>
+<span><span class="co">## 3   TWD      13    species             1       21</span></span>
 <span><span class="co">## 4   DGA      26    complex             2        0</span></span>
 <span><span class="co">## 5   DST      29    complex             2        0</span></span>
 <span><span class="co">## 6   DWC      32    complex             2        0</span></span>
-<span><span class="co">## 7   DIZ      34      genus             3       21</span></span>
-<span><span class="co">## 8   THZ      35      genus             3       10</span></span>
+<span><span class="co">## 7   DIZ      34      genus             3       19</span></span>
+<span><span class="co">## 8   THZ      35      genus             3        5</span></span>
 <span><span class="co">## 9   ALZ      38     family             4        0</span></span>
-<span><span class="co">## 10  BLZ      40      class             5       21</span></span></code></pre>
+<span><span class="co">## 10  BLZ      40      class             5       25</span></span></code></pre>
 <pre><code><span><span class="co">## Captures data frame:</span></span></code></pre>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 78 × 6</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 82 × 6</span></span></span>
 <span><span class="co">##    captures_k captures_live_k captures_dead_k code_k month_k fishery_group_k</span></span>
 <span><span class="co">##         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>          1               1               0      1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>          1               1               0      1       2               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>          2               1               1      1       3               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>          1               1               0      1       5               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>          2               1               1      1       6               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>          1               1               0      1       7               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>          1               1               0      1      10               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>          1               0               1      1      11               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>          2               1               1      1      12               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span>          3               2               1      1       1               2</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 68 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>          3               0               3      1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>          1               0               1      1       4               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>          1               0               1      1       5               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>          1               0               1      1       6               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>          1               1               0      1       8               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>          2               1               1      1      10               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>          1               1               0      1      11               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>          2               2               0      1       1               2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>          3               0               3      1       2               2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span>          1               1               0      1       4               2</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 72 more rows</span></span></span></code></pre>
 <pre><code><span><span class="co">## Observed overlap data frame:</span></span></code></pre>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 72 × 5</span></span></span>
 <span><span class="co">##    overlap_i species_i species_group_i month_i fishery_group_i</span></span>
 <span><span class="co">##        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>   0.007<span style="text-decoration: underline;">76</span>         1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>   0.001<span style="text-decoration: underline;">39</span>         1               1       2               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>   0.005<span style="text-decoration: underline;">68</span>         1               1       3               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>   0.008<span style="text-decoration: underline;">31</span>         1               1       4               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>   0.005<span style="text-decoration: underline;">41</span>         1               1       5               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>   0.006<span style="text-decoration: underline;">97</span>         1               1       6               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>   0.009<span style="text-decoration: underline;">56</span>         1               1       7               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>   0.007<span style="text-decoration: underline;">70</span>         1               1       8               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>   0.007<span style="text-decoration: underline;">40</span>         1               1       9               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span>   0.004<span style="text-decoration: underline;">86</span>         1               1      10               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>   0.004<span style="text-decoration: underline;">13</span>         1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>   0.005<span style="text-decoration: underline;">96</span>         1               1       2               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>   0.008<span style="text-decoration: underline;">27</span>         1               1       3               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>   0.009<span style="text-decoration: underline;">63</span>         1               1       4               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>   0.010<span style="text-decoration: underline;">8</span>          1               1       5               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>   0.006<span style="text-decoration: underline;">91</span>         1               1       6               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>   0.006<span style="text-decoration: underline;">53</span>         1               1       7               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>   0.008<span style="text-decoration: underline;">27</span>         1               1       8               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>   0.010<span style="text-decoration: underline;">4</span>          1               1       9               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span>   0.007<span style="text-decoration: underline;">48</span>         1               1      10               1</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 62 more rows</span></span></span></code></pre>
 <pre><code><span><span class="co">## Commercial overlap data frame:</span></span></code></pre>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 962 × 5</span></span></span>
-<span><span class="co">##    overlap_j species_j species_group_j month_j fishery_group_j</span></span>
-<span><span class="co">##        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0.000<span style="text-decoration: underline;">384</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0.000<span style="text-decoration: underline;">196</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0.000<span style="text-decoration: underline;">258</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0.000<span style="text-decoration: underline;">064</span>4         1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0.000<span style="text-decoration: underline;">763</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0.000<span style="text-decoration: underline;">477</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0.000<span style="text-decoration: underline;">584</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0.000<span style="text-decoration: underline;">653</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0.000<span style="text-decoration: underline;">618</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0.000<span style="text-decoration: underline;">430</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 952 more rows</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 995 × 5</span></span></span>
+<span><span class="co">##     overlap_j species_j species_group_j month_j fishery_group_j</span></span>
+<span><span class="co">##         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0.000<span style="text-decoration: underline;">975</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0.000<span style="text-decoration: underline;">378</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0.000<span style="text-decoration: underline;">891</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0.000<span style="text-decoration: underline;">905</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0.000<span style="text-decoration: underline;">111</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0.000<span style="text-decoration: underline;">792</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0.000<span style="text-decoration: underline;">567</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0.000<span style="text-decoration: underline;">712</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0.000<span style="text-decoration: underline;">003</span>96         1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0.000<span style="text-decoration: underline;">947</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 985 more rows</span></span></span></code></pre>
 <p>Captures and overlap data can also be extracted using,
 respectively:</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/captures.html">captures</a></span><span class="op">(</span><span class="va">sefra_dat</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 78 × 6</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 82 × 6</span></span></span>
 <span><span class="co">##    captures_k captures_live_k captures_dead_k code_k month_k fishery_group_k</span></span>
 <span><span class="co">##         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>          1               1               0      1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>          1               1               0      1       2               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>          2               1               1      1       3               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>          1               1               0      1       5               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>          2               1               1      1       6               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>          1               1               0      1       7               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>          1               1               0      1      10               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>          1               0               1      1      11               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>          2               1               1      1      12               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span>          3               2               1      1       1               2</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 68 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>          3               0               3      1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>          1               0               1      1       4               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>          1               0               1      1       5               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>          1               0               1      1       6               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>          1               1               0      1       8               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>          2               1               1      1      10               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>          1               1               0      1      11               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>          2               2               0      1       1               2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>          3               0               3      1       2               2</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span>          1               1               0      1       4               2</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 72 more rows</span></span></span></code></pre>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/overlap.html">overlap</a></span><span class="op">(</span><span class="va">sefra_dat</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $observer</span></span>
 <span><span class="co">## <span style="color: #949494;"># A tibble: 72 × 5</span></span></span>
 <span><span class="co">##    overlap_i species_i species_group_i month_i fishery_group_i</span></span>
 <span><span class="co">##        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>   0.007<span style="text-decoration: underline;">76</span>         1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>   0.001<span style="text-decoration: underline;">39</span>         1               1       2               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>   0.005<span style="text-decoration: underline;">68</span>         1               1       3               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>   0.008<span style="text-decoration: underline;">31</span>         1               1       4               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>   0.005<span style="text-decoration: underline;">41</span>         1               1       5               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>   0.006<span style="text-decoration: underline;">97</span>         1               1       6               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>   0.009<span style="text-decoration: underline;">56</span>         1               1       7               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>   0.007<span style="text-decoration: underline;">70</span>         1               1       8               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>   0.007<span style="text-decoration: underline;">40</span>         1               1       9               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span>   0.004<span style="text-decoration: underline;">86</span>         1               1      10               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>   0.004<span style="text-decoration: underline;">13</span>         1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>   0.005<span style="text-decoration: underline;">96</span>         1               1       2               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>   0.008<span style="text-decoration: underline;">27</span>         1               1       3               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>   0.009<span style="text-decoration: underline;">63</span>         1               1       4               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>   0.010<span style="text-decoration: underline;">8</span>          1               1       5               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>   0.006<span style="text-decoration: underline;">91</span>         1               1       6               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>   0.006<span style="text-decoration: underline;">53</span>         1               1       7               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>   0.008<span style="text-decoration: underline;">27</span>         1               1       8               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>   0.010<span style="text-decoration: underline;">4</span>          1               1       9               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span>   0.007<span style="text-decoration: underline;">48</span>         1               1      10               1</span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 62 more rows</span></span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $fishery</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 962 × 5</span></span></span>
-<span><span class="co">##    overlap_j species_j species_group_j month_j fishery_group_j</span></span>
-<span><span class="co">##        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0.000<span style="text-decoration: underline;">384</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0.000<span style="text-decoration: underline;">196</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0.000<span style="text-decoration: underline;">258</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0.000<span style="text-decoration: underline;">064</span>4         1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0.000<span style="text-decoration: underline;">763</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0.000<span style="text-decoration: underline;">477</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0.000<span style="text-decoration: underline;">584</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0.000<span style="text-decoration: underline;">653</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0.000<span style="text-decoration: underline;">618</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0.000<span style="text-decoration: underline;">430</span>          1               1       1               1</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 952 more rows</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 995 × 5</span></span></span>
+<span><span class="co">##     overlap_j species_j species_group_j month_j fishery_group_j</span></span>
+<span><span class="co">##         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 0.000<span style="text-decoration: underline;">975</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> 0.000<span style="text-decoration: underline;">378</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 0.000<span style="text-decoration: underline;">891</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 0.000<span style="text-decoration: underline;">905</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 0.000<span style="text-decoration: underline;">111</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 0.000<span style="text-decoration: underline;">792</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 0.000<span style="text-decoration: underline;">567</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 0.000<span style="text-decoration: underline;">712</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 0.000<span style="text-decoration: underline;">003</span>96         1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> 0.000<span style="text-decoration: underline;">947</span>           1               1       1               1</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 985 more rows</span></span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="cryptic-capture">Cryptic capture<a class="anchor" aria-label="anchor" href="#cryptic-capture"></a>
@@ -858,7 +856,7 @@ and fishery group, and can be assigned as follows:</p>
 <span><span class="co">## 12   log-normal     fishery_2       group_3 par2 0.186</span></span></code></pre>
 <p>At present, only a <code>log-normal</code> distribution is allowed.
 Values stored in the the <code>cryptic_capture_longline</code> object
-represent the authors best understanding of cryptic capture in longline
+represent the author’s best understanding of cryptic capture in longline
 fisheries, but can be adjusted as required by the user. We have
 stratified the cryptic captures assumption by species group, because we
 are currently not aware of any information that would allow a higher
@@ -870,265 +868,206 @@ resolution.</p>
 </h2>
 <p>First, source and compile the model code:</p>
 <div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sefra_mdl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sefraModel-class.html">sefraModel</a></span><span class="op">(</span><span class="va">sefra_dat</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## SEFRA-seabird model v3.0.1</span></span></code></pre>
-<p>The <code><a href="../reference/sefraModel-class.html">sefraModel()</a></code> function can optionally be supplied
-with the <code>sefraData-class</code> object as an argument. If
-commercial overlap is missing from the data, then predicted captures,
-deaths and risk are not calculated by the model. Only catchabilities and
-fits to the observed captures will be generated. This will lower the
-memory requirements for the model and may be useful for initial
-model-based explorations of the data.</p>
+<code class="sourceCode R"><span><span class="va">mdl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sefra.html">sefra</a></span><span class="op">(</span><span class="va">sefra_dat</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## SEFRA-seabird model v2.4.0</span></span></code></pre>
+<pre><code><span><span class="co">## WARNING: Rtools is required to build R packages, but is not currently installed.</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Please download and install the appropriate version of Rtools for 4.4.3 from</span></span>
+<span><span class="co">## https://cran.r-project.org/bin/windows/Rtools/.</span></span></code></pre>
+<pre><code><span><span class="co">## Trying to compile a simple C file</span></span></code></pre>
+<pre><code><span><span class="co">## Running "C:/R/bin/x64/Rcmd.exe" SHLIB foo.c</span></span>
+<span><span class="co">## using C compiler: 'gcc.exe (GCC) 13.2.0'</span></span>
+<span><span class="co">## make[1]: Entering directory '/c/Users/ctted/AppData/Local/Temp/RtmpGsJ18v'</span></span>
+<span><span class="co">## gcc  -I"C:/R/include" -DNDEBUG   -I"C:/Rlibrary/Rcpp/include/"  -I"C:/Rlibrary/RcppEigen/include/"  -I"C:/Rlibrary/RcppEigen/include/unsupported"  -I"C:/Rlibrary/BH/include" -I"C:/Rlibrary/StanHeaders/include/src/"  -I"C:/Rlibrary/StanHeaders/include/"  -I"C:/Rlibrary/RcppParallel/include/" -DRCPP_PARALLEL_USE_TBB=1 -I"C:/Rlibrary/rstan/include" -DEIGEN_NO_DEBUG  -DBOOST_DISABLE_ASSERTS  -DBOOST_PENDING_INTEGER_LOG2_HPP  -DSTAN_THREADS  -DUSE_STANC3 -DSTRICT_R_HEADERS  -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION  -D_HAS_AUTO_PTR_ETC=0  -include "C:/Rlibrary/StanHeaders/include/stan/math/prim/fun/Eigen.hpp"  -std=c++1y    -I"C:/rtools44/x86_64-w64-mingw32.static.posix/include"     -O2 -Wall  -mfpmath=sse -msse2 -mstackrealign  -c foo.c -o foo.o</span></span>
+<span><span class="co">## cc1.exe: warning: command-line option '-std=c++14' is valid for C++/ObjC++ but not for C</span></span>
+<span><span class="co">## In file included from C:/Rlibrary/RcppEigen/include/Eigen/Core:19,</span></span>
+<span><span class="co">##                  from C:/Rlibrary/RcppEigen/include/Eigen/Dense:1,</span></span>
+<span><span class="co">##                  from C:/Rlibrary/StanHeaders/include/stan/math/prim/fun/Eigen.hpp:22,</span></span>
+<span><span class="co">##                  from &lt;command-line&gt;:</span></span>
+<span><span class="co">## C:/Rlibrary/RcppEigen/include/Eigen/src/Core/util/Macros.h:679:10: fatal error: cmath: No such file or directory</span></span>
+<span><span class="co">##   679 | #include &lt;cmath&gt;</span></span>
+<span><span class="co">##       |          ^~~~~~~</span></span>
+<span><span class="co">## compilation terminated.</span></span>
+<span><span class="co">## make[1]: *** [C:/R/etc/x64/Makeconf:289: foo.o] Error 1</span></span>
+<span><span class="co">## make[1]: Leaving directory '/c/Users/ctted/AppData/Local/Temp/RtmpGsJ18v'</span></span></code></pre>
+<pre><code><span><span class="co">## WARNING: Rtools is required to build R packages, but is not currently installed.</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Please download and install the appropriate version of Rtools for 4.4.3 from</span></span>
+<span><span class="co">## https://cran.r-project.org/bin/windows/Rtools/.</span></span></code></pre>
+<p>The <code><a href="../reference/sefra.html">sefra()</a></code> function can optionally be supplied with the
+<code>sefraData</code> object as an argument. If commercial overlap is
+missing from the data, then predicted captures, deaths and risk are not
+calculated by the model. Only catchabilities and fits to the observed
+captures will be generated. This will lower the memory requirements for
+the model and may be useful for initial model-based explorations of the
+data.</p>
 <p>Note that a custom model can also be provided to
-<code><a href="../reference/sefraModel-class.html">sefraModel()</a></code>. In this instance we recommend first calling
-<code>sefraModel(write_to = &lt;file&gt;)</code> to write the
+<code><a href="../reference/sefra.html">sefra()</a></code>. In this instance we recommend first calling
+<code>sefra(write_to = &lt;file&gt;)</code> to write the
 <code>stan</code> code as a text file. This base code can then be
 modified by the user and re-compiled using
-<code>sefraModel(read_from = &lt;file&gt;)</code>.</p>
-<p>The <code>sefraModel-class</code> object will contain the initial
-values. These can be updated using <code><a href="../reference/initial_values.html">initial_values()</a></code> to
-generate a maximum posterior density estimate. To check initial
-values:</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sefra_mdl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initial_values.html">initial_values</a></span><span class="op">(</span><span class="va">sefra_dat</span>, <span class="va">sefra_mdl</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## initial model fit <span style="color: #00BB00;">✔</span></span></span></code></pre>
-<p><img src="run_model_files/figure-html/unnamed-chunk-25-1.png" alt="" width="672"></p>
+<code>sefra(read_from = &lt;file&gt;)</code>.</p>
+<p>The function <code><a href="../reference/initial_values.html">initial_values()</a></code> can be used to create a
+list of initial values. It can also be called with the model as an
+argument, in which case a maximum posterior density estimate is
+returned, and initial fits are plotted. To check initial values:</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mdl_ini</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initial_values.html">initial_values</a></span><span class="op">(</span><span class="va">sefra_dat</span>, <span class="va">mdl</span>, iter <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-25-1.png" width="672"></p>
 <p>This can be useful for quickly exploring the structural assumptions
 of the model, and whether reasonable fits to the data are obtained.
 Typically, structural mis-specification of the species and fishery
 groups, or a deficiency in the data, will lead to stronger prior updates
 on the biological parameters.</p>
-<p>When fitting, the model attempts to reconstruct the number of
-captures by estimating the catchabilities and observation probabilities
-according to the structural assumptions implemented by the user. In
-addition to estimating direct fits to the data, the model also
-calculates the cumulative sum of the captures, which can be used to
-examine whether the total number of captures per taxonomic group is
-being accurately predicted. In particular, we would hope that the total
-number of captures across all taxonomic groups is accuratly predicted by
-the model, which can be determined from the models ability to predict
-the cumulative sum of <code>BLZ</code> captures.</p>
-<p>To calculate the cumulative sum of the capture data, captures are
-summed per fishery group and capture code. Following summation, capture
-codes represent all captures at that taxonomic resolution or higher. For
-example, using the current data, the captures per capture code and
-fishery group are represented within the model as a two-dimensional
-matrix, with the fishery groups along the first dimension:</p>
+<p>When fitting the model, captures are summed per fishery group and
+capture code. Following summation, capture codes represent all captures
+at that taxonomic resolution or higher. For example, using the current
+data, the captures per capture code and fishery group are represented
+within the model as a two-dimensional matrix, with the fishery groups
+along the first dimension:</p>
 <pre><code><span><span class="co">## `summarise()` has grouped output by 'id_fishery_group'. You can override using</span></span>
 <span><span class="co">## the `.groups` argument.</span></span>
 <span><span class="co">## Joining with `by = join_by(id_fishery_group, code)`</span></span></code></pre>
 <pre><code><span><span class="co">##           DIW DQS TWD DGA DST DWC DIZ THZ ALZ BLZ</span></span>
-<span><span class="co">## fishery_1  12  13  11   0   0   0  10   3   0  13</span></span>
-<span><span class="co">## fishery_2  15  13  12   0   0   0  11   7   0   8</span></span></code></pre>
+<span><span class="co">## fishery_1  10  13   7   0   0   0   7   4   0  14</span></span>
+<span><span class="co">## fishery_2  16  10  14   0   0   0  12   1   0  11</span></span></code></pre>
 <p>The cumulative sum (or “inclusive sum”) of the capture codes used for
 fitting the model are:</p>
 <pre><code><span><span class="co">##           DIW DQS TWD DGA DST DWC DIZ THZ ALZ BLZ</span></span>
-<span><span class="co">## fishery_1  12  13  11  25  11  25  35  14  49  62</span></span>
-<span><span class="co">## fishery_2  15  13  12  28  12  28  39  19  58  66</span></span></code></pre>
-<p>For the <code>BLZ</code> capture code, there are 21 captures recorded
-as <code>BLZ</code> in the empirical data, but a total of 128
+<span><span class="co">## fishery_1  10  13   7  23   7  23  30  11  41  55</span></span>
+<span><span class="co">## fishery_2  16  10  14  26  14  26  38  15  53  64</span></span></code></pre>
+<p>For the <code>BLZ</code> capture code, there are 25 captures recorded
+as <code>BLZ</code> in the empirical data, but a total of 119
 <code>BLZ</code> captures when summed across captures recorded as
-<code>BLZ</code> or a higher taxonomic resolution. We refer to 21 as the
-<code>empirical</code> captures and 128 as the <code>inclusive</code>
-captures. Similarly for <code>DIZ</code> we have 21
-<code>empirical</code> captures and 74 <code>inclusive</code> captures.
+<code>BLZ</code> or a higher taxonomic resolution. We refer to 25 as the
+<code>empirical</code> captures and 119 as the <code>inclusive</code>
+captures. Similarly for <code>DIZ</code> we have 19
+<code>empirical</code> captures and 68 <code>inclusive</code> captures.
 This definition of <code>inclusive</code> captures is relevant to the
 model fit and downstream diagnostics.</p>
 <div class="section level3">
 <h3 id="model-run">Model run<a class="anchor" aria-label="anchor" href="#model-run"></a>
 </h3>
-<p>Sample from the posterior using the <code>$sampling()</code> function
-from <code>cmdstanr</code>:</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sefra_mdl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sampler.html">sampler</a></span><span class="op">(</span><span class="va">sefra_dat</span>, <span class="va">sefra_mdl</span>, chains <span class="op">=</span> <span class="fl">2</span>, parallel_chains <span class="op">=</span> <span class="fl">2</span>, iter_warmup <span class="op">=</span> <span class="fl">1000</span>, iter_sampling <span class="op">=</span> <span class="fl">1000</span>, threads_per_chain <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p>The different scales on which biological parameters are estimated can
-make it difficult for the MCMC chain to explore the full parameter
-space, and the user may therefore wish to adjust the
-<code>adapt_delta</code>, <code>stepsize</code> or
-<code>max_treedepth</code> control parameters. We further recommend that
-<code>uniform</code> priors should only be used for
+<p>Run the model using a standard call from the <code>rstan</code>
+package:</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mdl_fit</span> <span class="op">&lt;-</span> <span class="fu">rstan</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html" class="external-link">sampling</a></span><span class="op">(</span><span class="va">mdl</span>, data <span class="op">=</span> <span class="va">sefra_dat</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, init <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="va">mdl_ini</span>, chains <span class="op">=</span> <span class="fl">2</span>, iter <span class="op">=</span> <span class="fl">200</span>, control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>adapt_delta <span class="op">=</span> <span class="fl">0.95</span>, stepsize <span class="op">=</span> <span class="fl">0.1</span>, max_treedepth <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Warning: The largest R-hat is NA, indicating chains have not mixed.</span></span>
+<span><span class="co">## Running the chains for more iterations may help. See</span></span>
+<span><span class="co">## https://mc-stan.org/misc/warnings.html#r-hat</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.</span></span>
+<span><span class="co">## Running the chains for more iterations may help. See</span></span>
+<span><span class="co">## https://mc-stan.org/misc/warnings.html#bulk-ess</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.</span></span>
+<span><span class="co">## Running the chains for more iterations may help. See</span></span>
+<span><span class="co">## https://mc-stan.org/misc/warnings.html#tail-ess</span></span></code></pre>
+<p>The different scales on which biological parameters are estimated
+makes it difficult for the MCMC chain to explore the full parameter
+space, and we therefore recommend the above settings for the
+<code>control</code> argument, which will assist convergence. We further
+recommend that <code>uniform</code> priors should only be used for
 <code>p_breeding</code> and <code>adult_survival</code> (if at all) and
 not for <code>n_breeding_pairs</code> or <code>age_breeding</code>.</p>
 <p>Functions exist to extract and summarise relevant model outputs, to
 allow the user to create their own diagnostic plots and tables:</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sefra_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sefraOutputs-class.html">sefraOutputs</a></span><span class="op">(</span><span class="va">sefra_dat</span>, <span class="va">sefra_mdl</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## constructed 'sefraOutputs' object <span style="color: #00BB00;">✔</span></span></span></code></pre>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">out_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">sefra_out</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
-<caption>PST</caption>
-<thead><tr class="header">
-<th align="left">species</th>
-<th align="right">mean</th>
-<th align="right">mq</th>
-<th align="right">lq</th>
-<th align="right">uq</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">DIW</td>
-<td align="right">306.7724</td>
-<td align="right">303.7025</td>
-<td align="right">229.7858</td>
-<td align="right">403.6591</td>
-</tr>
-<tr class="even">
-<td align="left">DQS</td>
-<td align="right">285.8586</td>
-<td align="right">280.6301</td>
-<td align="right">207.6187</td>
-<td align="right">390.3796</td>
-</tr>
-<tr class="odd">
-<td align="left">TWD</td>
-<td align="right">6662.0626</td>
-<td align="right">6533.0709</td>
-<td align="right">4318.3926</td>
-<td align="right">9876.8959</td>
-</tr>
-</tbody>
-</table>
-<table class="table">
-<caption>Risk ratio</caption>
-<thead><tr class="header">
-<th align="left">species</th>
-<th align="right">mean</th>
-<th align="right">mq</th>
-<th align="right">lq</th>
-<th align="right">uq</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">DIW</td>
-<td align="right">0.0089556</td>
-<td align="right">0.0087423</td>
-<td align="right">0.0054751</td>
-<td align="right">0.0140560</td>
-</tr>
-<tr class="even">
-<td align="left">DQS</td>
-<td align="right">0.0105234</td>
-<td align="right">0.0101956</td>
-<td align="right">0.0058968</td>
-<td align="right">0.0173810</td>
-</tr>
-<tr class="odd">
-<td align="left">TWD</td>
-<td align="right">0.0004815</td>
-<td align="right">0.0004625</td>
-<td align="right">0.0002683</td>
-<td align="right">0.0008196</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sefraOutputs-class.html">sefraOutputs</a></span><span class="op">(</span><span class="va">sefra_dat</span>, <span class="va">mdl_fit</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## constructed 'sefraOutputs' object</span></span></code></pre>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></code></pre></div>
+<p>These are not explored further here.</p>
 </div>
 <div class="section level3">
 <h3 id="model-diagnostics">Model diagnostics<a class="anchor" aria-label="anchor" href="#model-diagnostics"></a>
 </h3>
 <p>Trace plots can be used to visualise convergence. For example, we can
-plot trace diagnostics for the biological parameters using, for
-example:</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">sefra_mdl</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p_breeding"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"P["</span>, <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="run_model_files/figure-html/unnamed-chunk-32-1.png" alt="" width="672"></p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#trace_plot(mdl_fit, pars = c("age_breeding"), labels = list(species = paste0("alpha[", sefra_dat$species, "]")))</span></span>
-<span><span class="co">#trace_plot(mdl_fit, pars = c("adult_survival"), labels = list(species = paste0("S[", sefra_dat$species, "]")))</span></span>
-<span><span class="co">#trace_plot(mdl_fit, pars = c("n_breeding_pairs"), labels = list(species = paste0("N[", sefra_dat$species, "]")))</span></span></code></pre></div>
-<p>the probabilities of observation:</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">sefra_mdl</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p_obs_logit"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fishery_group <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">fishery_groups</span>, pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"pi["</span>, <span class="fl">1</span><span class="op">:</span><span class="va">sefra_dat</span><span class="op">$</span><span class="va">n_pi</span>, <span class="st">"]"</span><span class="op">)</span>, resolution <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">sefra_dat</span><span class="op">$</span><span class="va">resolutions</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="run_model_files/figure-html/unnamed-chunk-33-1.png" alt="" width="672"></p>
-<p>or the catchabilities:</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">sefra_mdl</span>, pars <span class="op">=</span> <span class="st">"q"</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fishery_group <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">fishery_groups</span>, species_group <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species_groups</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="run_model_files/figure-html/unnamed-chunk-34-1.png" alt="" width="672"></p>
+plot trace diagnostics for the biological parameters using:</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">mdl_fit</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p_breeding"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"P["</span>, <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-30-1.png" width="672"></p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">mdl_fit</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"age_breeding"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"A["</span>, <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-30-2.png" width="672"></p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">mdl_fit</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"adult_survival"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"S["</span>, <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-30-3.png" width="672"></p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">mdl_fit</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"n_breeding_pairs"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"N["</span>, <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-30-4.png" width="672"></p>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/trace_plot.html">trace_plot</a></span><span class="op">(</span><span class="va">mdl_fit</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"p_obs_logit"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-31-1.png" width="672"></p>
 <p>To visualise prior updates to the biological input distributions, we
 use, for example:</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_prior_update.html">plot_prior_update</a></span><span class="op">(</span><span class="va">sefra_mdl</span>, par <span class="op">=</span> <span class="st">"n_breeding_pairs"</span>, species_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">sefra_dat</span><span class="op">$</span><span class="va">species</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="run_model_files/figure-html/unnamed-chunk-35-1.png" alt="" width="480"></p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_prior_update.html">plot_prior_update</a></span><span class="op">(</span><span class="va">mdl_fit</span>, par <span class="op">=</span> <span class="st">"n_breeding_pairs"</span>, labels <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-32-1.png" width="480"></p>
 <p>Only one biological parameter can be included per box-plot.</p>
 <p>Diagnostic plots also exist for Rhat and Neff. For example:</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">par_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">alpha</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">par_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">alpha</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">alpha</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">beta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="st">","</span><span class="op">]</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/get_rhat.html">plot_rhat</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_traces.html">get_traces</a></span><span class="op">(</span><span class="va">sefra_mdl</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"alpha_species_group"</span><span class="op">)</span>, dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fishery_group <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">fishery_groups</span>, species_group <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species_groups</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, labels <span class="op">=</span> <span class="va">par_labels</span><span class="op">)</span></span></code></pre></div>
-<p><img src="run_model_files/figure-html/unnamed-chunk-36-1.png" alt="" width="480"></p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_rhat.html">plot_neff</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_traces.html">get_traces</a></span><span class="op">(</span><span class="va">sefra_mdl</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"alpha_species_group"</span><span class="op">)</span>, dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fishery_group <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">fishery_groups</span>, species_group <span class="op">=</span> <span class="va">sefra_dat</span><span class="op">$</span><span class="va">species_groups</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, labels <span class="op">=</span> <span class="va">par_labels</span><span class="op">)</span></span></code></pre></div>
-<p><img src="run_model_files/figure-html/unnamed-chunk-36-2.png" alt="" width="480"></p>
+<span><span class="fu"><a href="../reference/get_rhat.html">plot_rhat</a></span><span class="op">(</span><span class="va">mdl_fit</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"alpha_fishery_group"</span>, <span class="st">"alpha_species_group"</span>, <span class="st">"beta_fishery_group"</span>, <span class="st">"beta_species_group"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="va">par_labels</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-33-1.png" width="480"></p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_rhat.html">plot_neff</a></span><span class="op">(</span><span class="va">mdl_fit</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"alpha_fishery_group"</span>, <span class="st">"alpha_species_group"</span>, <span class="st">"beta_fishery_group"</span>, <span class="st">"beta_species_group"</span><span class="op">)</span>, labels <span class="op">=</span> <span class="va">par_labels</span><span class="op">)</span></span></code></pre></div>
+<p><img src="run_model_files/figure-html/unnamed-chunk-33-2.png" width="480"></p>
 <p>Perhaps the most useful diagnostic is provided from examination of
 fits to the capture data, and a specific function exists for this
 purpose:</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/captures.html">captures</a></span><span class="op">(</span><span class="va">sefra_dat</span>, <span class="va">sefra_mdl</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/captures.html">captures</a></span><span class="op">(</span><span class="va">sefra_dat</span>, <span class="va">mdl_fit</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $captures</span></span>
 <span><span class="co">## <span style="color: #949494;"># A tibble: 20 × 7</span></span></span>
-<span><span class="co">##    fishery_group code  captures hat_mean hat_mq hat_lq hat_uq</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fishery_1     DIW         12     8.46      8      2   17  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> fishery_1     DQS         13     9.03      9      3   18  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> fishery_1     TWD         11     6.85      6      1   14  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> fishery_1     DGA          0     1.44      1      0    5  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> fishery_1     DST          0     1.97      2      0    6  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> fishery_1     DWC          0     1.45      1      0    5  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> fishery_1     DIZ         10    10.5      10      3   20  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fishery_1     THZ          3     3.92      4      0   10  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fishery_1     ALZ          0     4.52      4      0   11  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> fishery_1     BLZ         13    13.8      13      5   25  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">11</span> fishery_2     DIW         15    10.3      10      3   20  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">12</span> fishery_2     DQS         13     8.93      9      2   18  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">13</span> fishery_2     TWD         12     8.19      8      2   16  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">14</span> fishery_2     DGA          0     1.46      1      0    5  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">15</span> fishery_2     DST          0     2.19      2      0    7  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">16</span> fishery_2     DWC          0     1.48      1      0    5  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">17</span> fishery_2     DIZ         11    11.4      11      4   21  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">18</span> fishery_2     THZ          7     6.51      6      1   14  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">19</span> fishery_2     ALZ          0     4.66      4      0   11.0</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">20</span> fishery_2     BLZ          8    10.7      10      4   20  </span></span>
+<span><span class="co">##    fishery_group code  captures   hat   med low_ci upp_ci</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fishery_1     DIW         10  6.7      6  1      14.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> fishery_1     DQS         13  8.62     8  2      15.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> fishery_1     TWD          7  4.26     4  1       8.03</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> fishery_1     DGA          0  4.00     4  0      10   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> fishery_1     DST          0  3.04     3  0       8.03</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> fishery_1     DWC          0  4.31     4  0.975   9   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> fishery_1     DIZ          7  5.63     5  0      13   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fishery_1     THZ          4  3.1      3  0       7.03</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fishery_1     ALZ          0  9.38     9  2      19.1 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> fishery_1     BLZ         14 11.4     11  3      22.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">11</span> fishery_2     DIW         16 11.2     11  5      19.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">12</span> fishery_2     DQS         10  6.92     7  1      15   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">13</span> fishery_2     TWD         14  8.12     8  3      15   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">14</span> fishery_2     DGA          0  5.35     5  0      11.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">15</span> fishery_2     DST          0  3.88     3  0      11   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">16</span> fishery_2     DWC          0  5.21     5  0.975  12.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">17</span> fishery_2     DIZ         12  7.10     6  1      17.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">18</span> fishery_2     THZ          1  3.78     3  0      10   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">19</span> fishery_2     ALZ          0 10.1      9  3      21.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">20</span> fishery_2     BLZ         11 13.2     13  2.98   28   </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $captures_inclusive</span></span>
 <span><span class="co">## <span style="color: #949494;"># A tibble: 20 × 7</span></span></span>
-<span><span class="co">##    fishery_group code  captures hat_mean hat_mq hat_lq hat_uq</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fishery_1     DIW         12     8.48      8      2   17  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> fishery_1     DQS         13     9.01      9      2   18.0</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> fishery_1     TWD         11     6.74      6      1   14  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> fishery_1     DGA         25    18.9      18      9   32  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> fishery_1     DST         11     8.79      8      2   18  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> fishery_1     DWC         25    20.2      20     10   33  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> fishery_1     DIZ         35    30.8      30     17   48  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fishery_1     THZ         14    12.7      12      5   23  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fishery_1     ALZ         49    48.1      48     30   69  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> fishery_1     BLZ         62    62.1      62     41   87  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">11</span> fishery_2     DIW         15    10.3      10      3   20  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">12</span> fishery_2     DQS         13     8.89      8      3   18  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">13</span> fishery_2     TWD         12     8.19      8      2   17  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">14</span> fishery_2     DGA         28    20.8      20     10   35  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">15</span> fishery_2     DST         12    10.4      10      4   19.0</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">16</span> fishery_2     DWC         28    22.1      21     11   36  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">17</span> fishery_2     DIZ         39    33.5      33     20   51  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">18</span> fishery_2     THZ         19    16.9      16      7   29  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">19</span> fishery_2     ALZ         58    54.9      54     37   76  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">20</span> fishery_2     BLZ         66    65.8      65     45   89</span></span></code></pre>
-<p>Further diagnostic are provided in an accompanying vignette.</p>
-<p>To reconstruct maps, we can use values stored in the
-<code>sefraOutputs</code> object.</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># reconstruct maps</span></span>
-<span></span>
-<span><span class="va">map_deaths</span> <span class="op">&lt;-</span> <span class="va">sefra_out</span><span class="op">$</span><span class="va">predicted_deaths</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">iter</span>, <span class="va">species</span>, <span class="va">cell</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">cell</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'iter', 'species'. You can override using</span></span>
-<span><span class="co">## the `.groups` argument.</span></span>
-<span><span class="co">## `summarise()` has grouped output by 'species'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">map_deaths</span> <span class="op">&lt;-</span> <span class="fu">sefraInputs</span><span class="fu">::</span><span class="va">grid</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">map_deaths</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id_cell"</span> <span class="op">=</span> <span class="st">"cell"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">map_deaths</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu">sefraInputs</span><span class="fu">::</span><span class="va">grid</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu">sefraInputs</span><span class="fu">::</span><span class="va">southern_map</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span>, col <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">species</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="run_model_files/figure-html/unnamed-chunk-38-1.png" alt="" width="672"></p>
+<span><span class="co">##    fishery_group code  captures   hat   med low_ci upp_ci</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> fishery_1     DIW         10  6.7      6   1     13   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> fishery_1     DQS         13  8.48     8   2     17.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> fishery_1     TWD          7  4.45     4   1      9.03</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> fishery_1     DGA         23 19.0     19  10     29.1 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> fishery_1     DST          7  7.26     7   2.98  13   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> fishery_1     DWC         23 24.0     23  14.0   36   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> fishery_1     DIZ         30 28.8     29  18.0   43.1 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> fishery_1     THZ         11 10.5     10   4     18.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> fishery_1     ALZ         41 48.1     48  31     64   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> fishery_1     BLZ         55 60.7     60  45.0   81   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">11</span> fishery_2     DIW         16 11.0     11   3.98  19.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">12</span> fishery_2     DQS         10  6.84     6   2     14.0 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">13</span> fishery_2     TWD         14  8.43     8   3     16   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">14</span> fishery_2     DGA         26 22.9     23  14     34   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">15</span> fishery_2     DST         14 12.3     12   5     20.1 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">16</span> fishery_2     DWC         26 28.9     28  16     45   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">17</span> fishery_2     DIZ         38 35.2     35  22     51   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">18</span> fishery_2     THZ         15 16.4     16   8     27   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">19</span> fishery_2     ALZ         53 61.3     61  44.0   80   </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">20</span> fishery_2     BLZ         64 74.6     74  58     95.1</span></span></code></pre>
+<p>Further diagnostic plots will be developed as the project
+progresses.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -1142,7 +1081,7 @@ purpose:</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
