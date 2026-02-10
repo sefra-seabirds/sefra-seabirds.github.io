@@ -1,6 +1,6 @@
 main:
-  - title: "Objective"
-    url: /objective/
+  - title: "About"
+    url: /about/
   - title: "Science"
     url: /science/
   - title: "Reports"
