@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">sefra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,19 +78,19 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sefra-seabirds/sefra" class="external-link">sefra</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="sefraData-class.html">sefraData</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'DIW'</span>, <span class="st">'DQS'</span>, <span class="st">'TWD'</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> species codes input: including all possible capture codes</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> species codes input: including all species-dependent capture codes</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> constructed 'sefraData' object</span>
 <span class="r-in"><span><span class="fu">p_southern</span><span class="op">(</span><span class="va">dat</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">36</span><span class="op">)</span>, dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">12</span><span class="op">)</span>, </span></span>
 <span class="r-in"><span>   dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'DIW'</span>, <span class="st">'DQS'</span>, <span class="st">'TWD'</span><span class="op">)</span>, <span class="fu">sefra</span><span class="fu">::</span><span class="va"><a href="months.html">months</a></span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">p_southern</span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           Jan       Feb       Mar       Apr        May       Jun       Jul</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> DIW 0.2050299 0.5135518 0.6194597 0.8791888 0.79507449 0.1695039 0.3568284</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> DQS 0.4564192 0.4627568 0.6955591 0.4046568 0.70878502 0.5372473 0.5364571</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> TWD 0.6309669 0.1117470 0.3168564 0.6347836 0.05989639 0.6206394 0.4485171</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           Aug       Sep       Oct       Nov       Dec</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> DIW 0.1745433 0.2796206 0.3275860 0.5293588 0.9925204</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> DQS 0.6582881 0.6306955 0.3937545 0.8433471 0.7089872</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> TWD 0.9716602 0.4233033 0.6319949 0.6395425 0.7534121</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Jan       Feb       Mar       Apr        May       Jun        Jul</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> DIW 0.5325652 0.3883498 0.6752085 0.9686375 0.81459620 0.7634748 0.20403065</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> DQS 0.5468048 0.1723519 0.9462948 0.3870963 0.07096477 0.4353866 0.03102602</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> TWD 0.0959265 0.6907258 0.1962195 0.6503439 0.52683032 0.5524723 0.96970706</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Aug       Sep        Oct        Nov       Dec</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> DIW 0.1786131 0.8364463 0.03590981 0.69658366 0.1264926</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> DQS 0.7782928 0.6053684 0.13141851 0.40572872 0.9373302</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> TWD 0.8857108 0.9068795 0.09403037 0.06563664 0.2163802</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -102,7 +102,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>

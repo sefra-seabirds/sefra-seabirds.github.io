@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">sefra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,6 +113,18 @@
         <dd>Probability distributions.</dd>
       </dl><dl><dt>
 
+          <code><a href="dot-check_dimensions.html">.check_dimensions()</a></code>
+
+        </dt>
+        <dd>Check number of dimensions</dd>
+      </dl><dl><dt>
+
+          <code><a href="dot-data_for_model.html">.data_for_model()</a></code>
+
+        </dt>
+        <dd>Strip names from <code>sefraData</code> object</dd>
+      </dl><dl><dt>
+
           <code><a href="dot-distribution_init.html">.distribution_init()</a></code>
 
         </dt>
@@ -137,10 +149,28 @@
         <dd>Access or assign fishery groups</dd>
       </dl><dl><dt>
 
+          <code><a href="get_draws.html">get_draws()</a></code>
+
+        </dt>
+        <dd>Get draws from `CmdStanMCMC` or `sefraModel` object.</dd>
+      </dl><dl><dt>
+
+          <code><a href="get_num_retained.html">get_num_retained()</a></code>
+
+        </dt>
+        <dd>Get number of retained samples from <code>sefraModel</code> object</dd>
+      </dl><dl><dt>
+
           <code><a href="get_rhat.html">get_rhat()</a></code> <code><a href="get_rhat.html">plot_rhat()</a></code> <code><a href="get_rhat.html">get_neff()</a></code> <code><a href="get_rhat.html">plot_neff()</a></code>
 
         </dt>
         <dd>Diagnostic functions</dd>
+      </dl><dl><dt>
+
+          <code><a href="get_traces.html">get_traces()</a></code>
+
+        </dt>
+        <dd>Get draws from <code>CmdStanMCMC</code> or <code>sefraModel</code> object.</dd>
       </dl><dl><dt>
 
           <code><a href="initial_values.html">initial_values()</a></code>
@@ -182,13 +212,7 @@
           <code><a href="plot_prior_update.html">plot_prior_update()</a></code>
 
         </dt>
-        <dd>Plot prior updates from <code>sefra</code> model run</dd>
-      </dl><dl><dt>
-
-          <code><a href="posterior.html">posterior()</a></code>
-
-        </dt>
-        <dd>Extract posterior density</dd>
+        <dd>Plot prior updates from <code>sefraModel</code> model run</dd>
       </dl><dl><dt>
 
           <code><a href="print_code_to_code.html">print_code_to_code()</a></code>
@@ -215,16 +239,22 @@
         <dd>Access or assign distribution parameters for \(P^{SH}_{s,m}\)</dd>
       </dl><dl><dt>
 
-          <code><a href="sefra.html">sefra()</a></code>
+          <code><a href="sampler.html">sampler()</a></code>
 
         </dt>
-        <dd>Extract and compile <code>sefra</code> seabird model</dd>
+        <dd>Sample from posterior distribution</dd>
       </dl><dl><dt>
 
           <code><a href="sefraData-class.html">sefraData()</a></code>
 
         </dt>
         <dd>Class containing input data for model run</dd>
+      </dl><dl><dt>
+
+          <code><a href="sefraModel-class.html">sefraModel()</a></code>
+
+        </dt>
+        <dd>Class containing a compiled SEFRA model</dd>
       </dl><dl><dt>
 
           <code><a href="sefraOutputs-class.html">sefraOutputs()</a></code>
@@ -288,7 +318,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>
